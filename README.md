@@ -8,6 +8,23 @@ frontend:
 
     Make sure you are in the frontend folder and run this in the terminal:`npm run`
 
+
+you will also need to install the requirements in the backend and frontend so you will need to run
+
+in the Backend:
+
+```
+pip install requirements.txt
+```
+
+in the Frontend: 
+
+```
+npm install 
+```
+
+
+
 Additional Information:
 
 [How to List Contents of s3 Bucket Using Boto3 Python?](https://dev.to/aws-builders/how-to-list-contents-of-s3-bucket-using-boto3-python-47mm)
