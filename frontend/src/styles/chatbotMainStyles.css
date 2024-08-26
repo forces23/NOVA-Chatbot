@@ -1,0 +1,306 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.override-bootstrap .chat-window {
+    margin-bottom: 45px;
+    
+}
+
+.override-bootstrap .input-div {
+    width: 83%;
+    /* background-color: white; */
+}
+
+nav {
+    width: 100px;
+}
+
+.title-bar {
+    position: fixed;
+    /* height:12rem; */
+}
+
+/* .chat-bubbles {
+    background-color: rgb(75, 75, 75);
+} */
+
+.userChatHistory {
+    /* color: #87cfff; */
+    color: white;
+}
+
+/* .botResponse{
+    /* color: #4f60ff; 
+    
+} */
+
+.botButtons{
+    color: #4956cc;
+}
+
+.botIcon {
+    background: radial-gradient(circle, #f827ff 25%, #310dff 71%) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.context button {
+    background-color: rgb(243, 243, 243);
+    border: none !important;
+}
+
+.override-bootstrap .rotated-icon {
+    transform: rotate(180deg);
+    /* background-color: yellow; */
+}
+
+.copy-btn {
+    cursor: pointer;
+}
+
+.thumbs {
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.title-bar {
+    background-color: #333333;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    /* border-bottom: 1px solid #dee2e6; */
+    position: absolute;
+    /* top: 5px; */
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /* box-shadow: 0 2px 10px rgba(125, 103, 103, 0.421); */
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    margin-top: 50px;
+    /* Adjust this value to match the height of your title bar */
+}
+
+.side-pane {
+    width: 250px;
+    /* background-color: #f8f9fa; */
+    background-color: #333333;
+    color: #fff;
+    /* border-right: 1px solid #dee2e6; */
+    transition: width 0.3s ease;
+    box-shadow: 0 2px 10px rgba(125, 103, 103, 0.421);
+    z-index: 3;
+}
+
+.side-pane.collapsed {
+    width: 50px;
+
+}
+
+.side-pane-header {
+    padding-top: 10px;
+    /* border-bottom: 1px solid #dee2e6; */
+}
+
+.side-pane-footer {
+    padding: 0;
+    /* just there for place holder */
+    /* border-top: 1px solid #dee2e6; */
+}
+
+.chat-sessions {
+    overflow-y: auto;
+    height: calc(100% - 133px);
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-session {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px;
+    background-color: #333333; 
+    color: #ffffff; 
+    z-index: 2;
+}
+
+.input-area {
+    padding: 20px;
+    /* border-top: 1px solid #dee2e6; */
+    display: flex;
+    background-color: #333333;
+}
+
+.input-area textarea {
+    flex: 1;
+    margin-right: 10px;
+    box-shadow: none !important;
+    min-height: 38px;
+    max-height:  72px;
+    resize: none;
+    overflow-y: auto;
+}
+
+#toggleSidePane {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+#settingsButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.settings-container {
+    position: relative;
+}
+
+.settings-bubble {
+    color: black;
+    position: absolute;
+    bottom: 1%;
+    left: 0%;
+    background-color: #f9f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-width: 250px;
+    opacity: 0;
+    transform: translateX(-110%);  /* Start off-screen to the left */
+    transition:  transform 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+.settings-bubble.show {
+    display: block;
+}
+
+.settings-bubble.open {
+    transform: translateX(0);  /* Slide into view */
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider-container {
+    margin-bottom: 10px;
+}
+
+input[type="range"] {
+    width: 200px;
+}
+
+code {
+    white-space: pre-wrap !important;
+}
+
+.userMessage {
+    font-family: inherit; /* This will make the pre tag inherit the font family from its parent element */
+    font-size: inherit; /* This will make the pre tag inherit the font size from its parent element */
+    white-space: pre-wrap; /* This will preserve line breaks but allow wrapping */
+}
+
+
+/* ================================================================= */
+/* Scroll bar styles */
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the track area */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scroll thumb */
+    border-radius: 6px; /* Rounded corners of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color of the scroll thumb on hover */
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #888 #333333; /* Thumb color and track color */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .side-pane {
+        position: absolute;
+        height: calc(100% - 50px);
+        /* Adjust for title bar */
+        top: 50px;
+        /* Position below title bar */
+        z-index: 3;
+    }
+
+    .side-pane.collapsed {
+        width: 0;
+    }
+
+    .settings-bubble {
+        left: auto;   /* Reset left positioning */
+        right: 0;     /* Align with the right edge of the button on small screens */
+        transform: translateX(110%);  /* Start off-screen to the right on small screens */
+    }
+
+    .settings-bubble.open {
+        transform: translateX(0);  /* Slide in from the right */
+    }
+
+    .settings-btn {
+        color: #fff;
+    }
+
+    .side-pane.collapsed .side-pane-footer {
+        display: none;
+      }
+
+}
+
+/* @media (prefers-color-scheme: dark) { 
+    .chat-session { 
+        background-color: #333333; 
+        color: #ffffff; 
+    } 
+    .input-div{
+        background-color: yellow;
+
+    }
+
+
+} */

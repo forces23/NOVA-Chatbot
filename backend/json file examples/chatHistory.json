@@ -1,0 +1,184 @@
+[
+    {
+        "chat_history": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "text": "what are you?",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "role": "bot",
+                "content": [
+                    {
+                        "query": "what are you?",
+                        "result": "Based on the context provided, I am a well-performed, very intelligent, kind call center AI System. My role is to provide answers to questions by using fact-based information when possible. As stated in the prompt, if I do not know the answer to a question, I should simply say that I do not know instead of making up an answer.",
+                        "source_documents": [
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/CSTAR-ASAM-Manual_1.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36693054,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/CSTAR-ASAM-Manual_1.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ay08IuJABxXOKNus_5WQ_",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "parental/guardian custodial    status for children/youth    \uf0b7 Family, including cultural identity and current and past family life experiences, for family    functioning/dynamics, relationships and current issues/concerns impacting children/youth    \uf0b7 Developmental information, including an evaluation of current areas of functioning such    as motor development, sensory, speech, hearing and language, emotional, behavioral and    intellectual functioning and self-care abilities    \uf0b7 Spiritual beliefs/religious orientation    \uf0b7 Sexuality, including current sexual activity, safe sex practices and sexual orientation    \uf0b7 Need for and availability of social, community and natural supports/resources such as    friends, pets, meaningful activities, leisure/ recreation interests, self-help groups,    resources from other agencies and interactions with peers including children/youth and    family    \uf0b7 Legal involvement history    \uf0b7 Legal status such as guardianship, representative payee, conservatorship and    probation/parole    \uf0b7 Education, including intellectual functioning, literacy level, learning impairments,    attendance and achievement    \uf0b7 Employment, including current work status, work history, interest in working and work    skills    \uf0b7 Status as a current or former member of the U.S."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive-Substance-Treatment-and-Rehabilitation.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.3660733,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive-Substance-Treatment-and-Rehabilitation.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ao9QJuJAB1fEzq9u6LXdO",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "................................................................................. 24    Adolescent Services ........................................................................................................ 25    2.8 Covered Services ...................................................................................................."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/aged-disabled-waiver-manual.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36593747,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/aged-disabled-waiver-manual.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3AME_-t5ABxXOKNus_a1j4",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "................................ 20    Personnel Record ........................................................................................................... 20    Adequate Documentation ............................................................................................... 21    Unit of Service..............................................."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Community-Psychiatric-Rehabilitation.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36581576,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Community-Psychiatric-Rehabilitation.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3A8E8IuJABxXOKNus_vGBB",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "approved by DMH for individuals whose    diagnosis requires a functional score to support admission (challenges, problems in daily    living, barriers)    \uf0b7 Risk-taking behaviors including child/youth risk behavior(s)    \uf0b7 Living situation, including where living and with whom, financial situation, guardianship,    need for assistive technology and parental/guardian custodial status for children/youth    \uf0b7 Family, including cultural identity, current and past family life experiences, family    functioning/dynamics, relationships, current issues/concerns impacting children/youth    \uf0b7 Developmental information, including an evaluation of current areas of functioning such    as motor development, sensory, speech, hearing and language, emotional, behavioral,    intellectual functioning and self-care abilities    \uf0b7 Spiritual beliefs/religious orientation    \uf0b7 Sexuality, including current sexual activity, safe sex practices and sexual orientation    \uf0b7 Need for and availability of social, community and natural supports/resources such as    friends, pets, meaningful activities, leisure/recreational interests, self-help groups,    resources from other agencies, interactions with peers including child/youth and family    \uf0b7 Legal involvement history    \uf0b7 Legal status such as guardianship, representative payee, conservatorship,    probation/parole    \uf0b7 Education including intellectual functioning, literacy level, learning impairments,    attendance, achievement    \uf0b7 Employment, including current work status, work history, interest in working and work"
+                                }
+                            ]
+                        ],
+                        "html_result": "<p>Based on the context provided, I am a well-performed, very intelligent, kind call center AI System. My role is to provide answers to questions by using fact-based information when possible. As stated in the prompt, if I do not know the answer to a question, I should simply say that I do not know instead of making up an answer.</p>"
+                    }
+                ]
+            },
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "text": "what are you?",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "role": "bot",
+                "content": [
+                    {
+                        "query": "what are you?",
+                        "result": "Based on the context provided, I am an intelligent call center AI system designed to provide helpful answers to questions using factual information when possible. The context gives details about the types of information that should be gathered for an assessment, such as parental/custodial status, family dynamics, developmental functioning, spiritual beliefs, sexual orientation, social supports, legal status, education, and employment. However, there are no specifics about what kind of AI system I am beyond being a call center system focused on providing accurate information to questions asked.",
+                        "source_documents": [
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/CSTAR-ASAM-Manual_1.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36693054,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/CSTAR-ASAM-Manual_1.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ay08IuJABxXOKNus_5WQ_",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "parental/guardian custodial    status for children/youth    \uf0b7 Family, including cultural identity and current and past family life experiences, for family    functioning/dynamics, relationships and current issues/concerns impacting children/youth    \uf0b7 Developmental information, including an evaluation of current areas of functioning such    as motor development, sensory, speech, hearing and language, emotional, behavioral and    intellectual functioning and self-care abilities    \uf0b7 Spiritual beliefs/religious orientation    \uf0b7 Sexuality, including current sexual activity, safe sex practices and sexual orientation    \uf0b7 Need for and availability of social, community and natural supports/resources such as    friends, pets, meaningful activities, leisure/ recreation interests, self-help groups,    resources from other agencies and interactions with peers including children/youth and    family    \uf0b7 Legal involvement history    \uf0b7 Legal status such as guardianship, representative payee, conservatorship and    probation/parole    \uf0b7 Education, including intellectual functioning, literacy level, learning impairments,    attendance and achievement \uf0b7 Employment, including current work status, work history, interest in working and work    skills    \uf0b7 Status as a current or former member of the U.S."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive-Substance-Treatment-and-Rehabilitation.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.3660733,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive-Substance-Treatment-and-Rehabilitation.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ao9QJuJAB1fEzq9u6LXdO",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "................................................................................. 24    Adolescent Services ........................................................................................................ 25    2.8 Covered Services ...................................................................................................."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/aged-disabled-waiver-manual.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36593747,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/aged-disabled-waiver-manual.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3AME_-t5ABxXOKNus_a1j4",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "................................ 20    Personnel Record ........................................................................................................... 20    Adequate Documentation ............................................................................................... 21    Unit of Service..............................................."
+                                }
+                            ],
+                            [
+                                {
+                                    "location": {
+                                        "s3Location": {
+                                            "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Community-Psychiatric-Rehabilitation.pdf"
+                                        },
+                                        "type": "S3"
+                                    },
+                                    "score": 0.36581576,
+                                    "source_metadata": {
+                                        "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Community-Psychiatric-Rehabilitation.pdf",
+                                        "x-amz-bedrock-kb-chunk-id": "1%3A0%3A8E8IuJABxXOKNus_vGBB",
+                                        "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                                    },
+                                    "page_content": "approved by DMH for individuals whose    diagnosis requires a functional score to support admission (challenges, problems in daily    living, barriers)    \uf0b7 Risk-taking behaviors including child/youth risk behavior(s)    \uf0b7 Living situation, including where living and with whom, financial situation, guardianship,    need for assistive technology and parental/guardian custodial status for children/youth    \uf0b7 Family, including cultural identity, current and past family life experiences, family    functioning/dynamics, relationships, current issues/concerns impacting children/youth    \uf0b7 Developmental information, including an evaluation of current areas of functioning such    as motor development, sensory, speech, hearing and language, emotional, behavioral,    intellectual functioning and self-care abilities    \uf0b7 Spiritual beliefs/religious orientation    \uf0b7 Sexuality, including current sexual activity, safe sex practices and sexual orientation  \uf0b7 Need for and availability of social, community and natural supports/resources such as    friends, pets, meaningful activities, leisure/recreational interests, self-help groups,    resources from other agencies, interactions with peers including child/youth and family    \uf0b7 Legal involvement history    \uf0b7 Legal status such as guardianship, representative payee, conservatorship,    probation/parole    \uf0b7 Education including intellectual functioning, literacy level, learning impairments,    attendance, achievement    \uf0b7 Employment, including current work status, work history, interest in working and work"
+                                }
+                            ]
+                        ],
+                        "html_result": "<p>Based on the context provided, I am an intelligent call center AI system designed to provide helpful answers to questions using factual information when possible. The context gives details about the types of information that should be gathered for an assessment, such as parental/custodial status, family dynamics, developmental functioning, spiritual beliefs, sexual orientation, social supports, legal status, education, and employment. However, there are no specifics about what kind of AI system I am beyond being a call center system focused on providing accurate information to questions asked.</p>"
+                    }
+                ]
+            }
+        ]
+    }
+]
