@@ -11,18 +11,18 @@ function Chatbot() {
     const inputRef = useRef<HTMLTextAreaElement>(null)
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {}, [payload])
+    useEffect(() => { }, [payload])
 
     useEffect(() => {
         // Scroll to bottom of current conversation history
         const chatContainer = chatContainerRef.current;
-        if (chatContainer){
+        if (chatContainer) {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     }, [currentConversation]);
 
     useEffect(() => {
-        const handleKeyPress = (event:KeyboardEvent) => {
+        const handleKeyPress = (event: KeyboardEvent) => {
             if (event.key === 'Enter') {
                 if (!event.shiftKey) {
                     event.preventDefault(); // Prevent default behavior (new line)
@@ -31,13 +31,13 @@ function Chatbot() {
                 // If Shift+Enter is pressed, do nothing (default behavior will add a new line)
             }
         };
-    
+
         const currentInput = inputRef.current;
         if (currentInput) {
             currentInput.addEventListener('keydown', handleKeyPress);
-    
+
             return () => {
-            currentInput.removeEventListener('keydown', handleKeyPress);
+                currentInput.removeEventListener('keydown', handleKeyPress);
             };
         }
 
@@ -53,7 +53,7 @@ function Chatbot() {
 
             setSpeakerTurn('bot');
 
-            setPayload(prevPayload => ({...prevPayload, 'prompt': ''}));
+            setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -74,7 +74,7 @@ function Chatbot() {
             setSpeakerTurn('bot');
 
             // setUserInput(''); // Clear the input field after the response is received
-            setPayload(prevPayload => ({...prevPayload, 'prompt': ''}));
+            setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
 
         }
         catch (error) {
@@ -94,7 +94,7 @@ function Chatbot() {
             setSpeakerTurn('bot');
 
             // setUserInput(''); // Clear the input field after the response is received
-            setPayload(prevPayload => ({...prevPayload, 'prompt': ''}));
+            setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
 
         }
         catch (error) {
@@ -107,7 +107,7 @@ function Chatbot() {
             inputRef.current.style.height = 'auto';
             inputRef.current.style.height = `${Math.min(inputRef.current.scrollHeight, 150)}px`;
         }
-      };
+    };
 
     function handleSendBtn() {
         setSpeakerTurn('user');
@@ -118,26 +118,27 @@ function Chatbot() {
 
         if (inputRef.current) {
             inputRef.current.style.height = 'auto';
-          }
+        }
 
     }
 
     function handleUserInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const { name, value } = e.target;
-        setPayload(prevPayloadSettings => ({...prevPayloadSettings, [name]: value }));
+        setPayload(prevPayloadSettings => ({ ...prevPayloadSettings, [name]: value }));
 
-        console.log('New Prompt:', payload)
+        // console.log('New Prompt:', payload)
 
         adjustTextareaHeight();
     }
 
     const handleTextChange = (text: string) => {
-        setPayload({ prompt: text });
+        // setPayload({ prompt: text });
+        setPayload(prevPayload => ({ ...prevPayload, 'prompt': text }));
     };
-    
+
     function handleVoice() {
         console.log('Voice to text feature not implemented yet');
-        
+
     }
 
     return (
@@ -164,9 +165,11 @@ function Chatbot() {
                             <i className='bi bi-mic p-2'></i>
                         </button> */}
                         <VoiceToText onTextChange={handleTextChange} />
-                        <button className="btn btn-primary me-1 border border-0 rounded-pill my-1" onClick={handleSendBtn}>
-                            <i className='bi bi-arrow-right p-2'></i>
-                        </button>
+                        <div className='d-flex align-items-center'>
+                            <button className="btn btn-primary me-1 border border-0 rounded-pill my-1" onClick={handleSendBtn}>
+                                <i className='bi bi-arrow-right p-2'></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

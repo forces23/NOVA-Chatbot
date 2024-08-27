@@ -78,6 +78,16 @@ nav {
     height: 100vh;
 }
 
+.chatbot-name {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+/* .chatbot-name {
+    font-style: "Orbitron";
+} */
+
 .title-bar {
     background-color: #333333;
     color: #fff;
@@ -152,6 +162,7 @@ nav {
     /* border-top: 1px solid #dee2e6; */
     display: flex;
     background-color: #333333;
+    
 }
 
 .input-area textarea {
@@ -232,12 +243,13 @@ code {
 /* ================================================================= */
 /* Scroll bar styles */
 /* WebKit-based browsers */
+
 ::-webkit-scrollbar {
-    width: 12px; /* Width of the entire scrollbar */
+    width: 8px; /* Width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Color of the track area */
+    background-color: #333333; /* Color of the track area */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -249,11 +261,19 @@ code {
     background-color: #555; /* Color of the scroll thumb on hover */
 }
 
-/* Firefox */
-* {
-    scrollbar-width: thin; /* "auto" or "thin" */
-    scrollbar-color: #888 #333333; /* Thumb color and track color */
+.input-area ::-webkit-scrollbar {
+    width: 4px; /* Width of the entire scrollbar */
 }
+
+.input-area ::-webkit-scrollbar-track {
+    background-color: #6c757d; /* Color of the track area */
+}
+
+/* Firefox */
+/* * {
+    scrollbar-width: thin; /* "auto" or "thin" 
+    scrollbar-color: #888 #333333; /* Thumb color and track color 
+} */
 
 
 

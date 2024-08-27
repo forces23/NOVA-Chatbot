@@ -23,7 +23,7 @@ function TitleBar() {
             </div>
             <div>
                 {/* Neurological Operative Virtual Assistant */}
-                <h4 className=''>NOVA</h4>
+                <h4 className='chatbot-name'>NOVA</h4>
             </div>
             <div>
                 {/* Filler div to create empty space to the right of title */}

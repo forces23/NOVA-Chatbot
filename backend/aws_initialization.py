@@ -3,37 +3,39 @@ from botocore.client import Config
 
 
 import os 
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
-# # AWS Credentials
-# AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
-# AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
+# AWS Credentials
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
 AWS_REGION_NAME = 'us-east-2' #os.environ.get('AWS_REGION_NAME')
-# AWS_SESSION_TOKEN = os.environ.get('AWS_SESSION_TOKEN')
+AWS_SESSION_TOKEN = os.environ.get('AWS_SESSION_TOKEN')
 
-# print(f'AWS_ACCESS_KEY: {AWS_ACCESS_KEY}')
-# print(f'AWS_SECRET_KEY: {AWS_SECRET_KEY}')
-# print(f'AWS_SESSION_TOKEN: {AWS_SESSION_TOKEN}')
-# print(f'AWS_REGION_NAME: {AWS_REGION_NAME}')
+print(f'AWS_ACCESS_KEY: {AWS_ACCESS_KEY}')
+print(f'AWS_SECRET_KEY: {AWS_SECRET_KEY}')
+print(f'AWS_SESSION_TOKEN: {AWS_SESSION_TOKEN}')
+print(f'AWS_REGION_NAME: {AWS_REGION_NAME}')
 
 
 
 # Initialize AWS S3 client
-# session = boto3.Session(
-#     aws_access_key_id=AWS_ACCESS_KEY,
-#     aws_secret_access_key=AWS_SECRET_KEY,
-#     region_name=AWS_REGION_NAME,
-#     aws_session_token=AWS_SESSION_TOKEN
-# )
+session = boto3.Session(
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY,
+    region_name=AWS_REGION_NAME,
+    # aws_session_token=AWS_SESSION_TOKEN
+)
 
-session = boto3.Session(profile_name='AWSPowerUserAccess-IHS-MCD-SANDBOX')
+# session = boto3.Session(profile_name=os.environ.get('ACCOUNT_1'))
+
 
 bedrock_region = 'us-east-1'
 model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
-kb_id_1 = 'TL3V1D2UQ9'
-# kb_id_1 = '96LGHHRB0O'
-# agentAliasId='LJW569JQUR', agentId='FZMG5RQBRF'
+kb_id_1 = os.environ.get('KB_ID_1')
+kb_id_2 = os.environ.get('KB_ID_2')
+agentAliasId_1 = os.environ.get('AGENT_ALIAS_ID_1')
+agentId_1 = os.environ.get('AGENT_ALIAS_ID_1')
 
 
 bedrock_config = Config(connect_timeout=120, read_timeout=120, retries={'max_attempts':0})

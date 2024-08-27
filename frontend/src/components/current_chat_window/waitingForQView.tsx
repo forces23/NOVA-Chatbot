@@ -10,7 +10,7 @@ function WaitingView() {
     return (
         <>
             <div className='d-flex flex-column'>
-                <h3 className='d-flex justify-content-center pt-5'> Ask a question to start a chat <strong>...</strong></h3>
+                <h3 className='chatbot-name d-flex justify-content-center pt-5'> Ask a question to start a chat <strong>...</strong></h3>
                 {/* <PinkDotsAnimation/> */}
                 <GradientDotsAnimation/>
             </div>
