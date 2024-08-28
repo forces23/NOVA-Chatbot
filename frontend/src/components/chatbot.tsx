@@ -14,7 +14,8 @@ function Chatbot() {
     useEffect(() => { }, [payload])
 
     useEffect(() => {
-        // Scroll to bottom of current conversation history
+        // Scroll to bottom of current conversation history 
+        //  -- this will make sure that the user sent message will cause the auto scroll
         const chatContainer = chatContainerRef.current;
         if (chatContainer) {
             chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -147,7 +148,7 @@ function Chatbot() {
                 <div ref={chatContainerRef} className="chat-session">
                     {/* <!-- Chat messages will be added here --> */}
                     <div >
-                        <ChatSession />
+                        <ChatSession chatContainerRef={chatContainerRef}/>
                     </div>
                 </div>
                 <div className="input-area">

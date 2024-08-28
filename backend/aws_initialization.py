@@ -9,33 +9,42 @@ load_dotenv()
 # AWS Credentials
 AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
 AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
-AWS_REGION_NAME = 'us-east-2' #os.environ.get('AWS_REGION_NAME')
+AWS_REGION_NAME = os.environ.get('AWS_REGION_NAME')
 AWS_SESSION_TOKEN = os.environ.get('AWS_SESSION_TOKEN')
+ACCOUNT_1 = os.environ.get('ACCOUNT_1')
+AUTHENTICATION_TYPE = os.environ.get('AUTHENTICATION_TYPE')
 
-print(f'AWS_ACCESS_KEY: {AWS_ACCESS_KEY}')
-print(f'AWS_SECRET_KEY: {AWS_SECRET_KEY}')
-print(f'AWS_SESSION_TOKEN: {AWS_SESSION_TOKEN}')
-print(f'AWS_REGION_NAME: {AWS_REGION_NAME}')
-
-
+print(f'Authentication type: {AUTHENTICATION_TYPE}')
 
 # Initialize AWS S3 client
-session = boto3.Session(
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,
-    region_name=AWS_REGION_NAME,
-    # aws_session_token=AWS_SESSION_TOKEN
-)
+if (AUTHENTICATION_TYPE == 'IAM') :
+    print(f'AWS_ACCESS_KEY: {AWS_ACCESS_KEY}')
+    print(f'AWS_SECRET_KEY: {AWS_SECRET_KEY}')
+    print(f'AWS_SESSION_TOKEN: {AWS_SESSION_TOKEN}')
+    print(f'AWS_REGION_NAME: {AWS_REGION_NAME}')
+    
+    session = boto3.Session(
+        aws_access_key_id=AWS_ACCESS_KEY,
+        aws_secret_access_key=AWS_SECRET_KEY,
+        region_name=AWS_REGION_NAME,
+        # aws_session_token=AWS_SESSION_TOKEN
+    )
+    
+elif (AUTHENTICATION_TYPE == 'SSO') :
+    print(f'ACCOUNT_1: {ACCOUNT_1}')
+    
+    session = boto3.Session(profile_name=ACCOUNT_1)
 
-# session = boto3.Session(profile_name=os.environ.get('ACCOUNT_1'))
-
+else :
+    print(f'Unknown Authentication Type: {AUTHENTICATION_TYPE}')
+    session = boto3.Session()
 
 bedrock_region = 'us-east-1'
 model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
 kb_id_1 = os.environ.get('KB_ID_1')
 kb_id_2 = os.environ.get('KB_ID_2')
 agentAliasId_1 = os.environ.get('AGENT_ALIAS_ID_1')
-agentId_1 = os.environ.get('AGENT_ALIAS_ID_1')
+agentId_1 = os.environ.get('AGENT_ID_1')
 
 
 bedrock_config = Config(connect_timeout=120, read_timeout=120, retries={'max_attempts':0})

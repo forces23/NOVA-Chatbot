@@ -4,10 +4,17 @@ backend:
 
     just run the main server.py python file
 
+```
+python server.py
+```
+
 frontend:
 
-    Make sure you are in the frontend folder and run this in the terminal:`npm run`
+    Make sure you are in the frontend folder and run this in the terminal
 
+```
+npm start
+```
 
 you will also need to install the requirements in the backend and frontend so you will need to run
 

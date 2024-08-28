@@ -25,7 +25,6 @@ def replace_code_blocks(match):
         code_lang = code_lines[0].split()[0].lower() if code_lines else 'default'
         if code_lang in constants.prog_langs:
                 
-                
             code = '\n'.join(code_lines[1:]) # Remove the language line
         else:
               code_lang = 'default' 

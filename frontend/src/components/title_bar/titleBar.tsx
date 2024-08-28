@@ -19,7 +19,7 @@ function TitleBar() {
     return (
         <div className='d-flex justify-content-between'>
             <div >
-                <i className='bi bi-rocket-takeoff-fill fs-3' onClick={goToGame}></i>
+                <i className='bi bi-rocket-takeoff-fill fs-3 me-2' onClick={goToGame}></i>
             </div>
             <div>
                 {/* Neurological Operative Virtual Assistant */}
