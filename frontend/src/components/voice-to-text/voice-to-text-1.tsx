@@ -1,17 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { VoiceToTextProps } from '../../utils/chatbotInterfaces';
 
-interface VoiceToTextProps {
-    onTextChange: (text: string) => void;
-}
 
 function VoiceToText({ onTextChange }: VoiceToTextProps) {
-    const {
-        transcript,
-        listening,
-        browserSupportsSpeechRecognition
-    } = useSpeechRecognition();
-
+    const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
     const [text, setText] = useState('');
     const prevTextRef = useRef('');
 
@@ -32,12 +25,10 @@ function VoiceToText({ onTextChange }: VoiceToTextProps) {
         if (listening) {
             SpeechRecognition.stopListening()
             console.log('Stop listening')
-            console.log(transcript)
         }
         else {
             SpeechRecognition.startListening()
             console.log('Start listening')
-            console.log(transcript)
         }
     };
 
@@ -46,8 +37,11 @@ function VoiceToText({ onTextChange }: VoiceToTextProps) {
     }
 
     return (
-        <div className='d-flex align-items-center'>
-            <button className={`voice-to-text btn me-1 border border-0 rounded-pill my-1 ${listening ? 'btn-danger' : 'btn-primary'}`} onClick={handleMicButton}>
+        <div className='d-flex align-items-end'>
+            <button 
+                className={`voice-to-text btn me-1 border border-0 rounded-pill my-1 ${listening ? 'btn-danger' : 'btn-primary'}`} 
+                onClick={handleMicButton}
+            >
                 <i className='bi bi-mic p-2'></i>
             </button>
         </div>

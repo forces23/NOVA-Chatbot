@@ -1,9 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import SettingsPane from './settingsPane';
 
-// interface SettingsButtonProps {
-//     onSettingsChange: (settings: { temperature: number; topP: number; topK: number }) => void;
-// }
 
 function SidePane() {
     const [isSidePaneCollapsed, setIsSidePaneCollapsed] = useState(true);
@@ -17,7 +14,6 @@ function SidePane() {
 
     return (
         <>
-            {/* create universal varabile sharing like in sebt */}
             <div className={`side-pane ${isSidePaneCollapsed ? 'collapsed' : ''}`} id="sidePane">
                 <div className="side-pane-header">
                     <button  id="toggleSidePane" className="btn btn-link" onClick={toggleSidePane}>

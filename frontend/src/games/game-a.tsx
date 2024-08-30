@@ -1,7 +1,11 @@
-import { useEffect, useRef, useContext } from 'react';
+/*
+* Did not create i found a Javascript asteroid game and converted to TypeScript
+* there is still some issue with the game but it works pretty well for now
+*/
+
+import { useEffect, useRef } from 'react';
 import { GameContext, GameEngine } from './gameContext-gameA';
 import '../styles/game_a.css';
-
 
 interface Point {
     x: number;

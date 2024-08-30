@@ -9,7 +9,6 @@ export interface CurrentConversationItem {
 
     }[];
     data_sources?: string[];
-    show_context?: boolean;
 }
 
 export interface ChatHistoryComponent {
@@ -34,4 +33,21 @@ export interface SettingsType {
     topP: number;
     topK: number;
 
+}
+
+export interface BotMessageInterface {
+    message: CurrentConversationItem;
+    index: number;
+    completedMessages: number[];
+    setCompletedMessages: React.Dispatch<React.SetStateAction<number[]>>;
+    chatContainerRef: React.RefObject<HTMLDivElement | null>;
+
+}
+
+export interface ChatSessionProps {
+    chatContainerRef: React.RefObject<HTMLDivElement | null>;
+}
+
+export interface VoiceToTextProps {
+    onTextChange: (text: string) => void;
 }

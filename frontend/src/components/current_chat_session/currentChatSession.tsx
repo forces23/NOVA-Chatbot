@@ -1,90 +1,17 @@
+import { useState, useEffect, useContext, useRef } from 'react';
 import axios from 'axios';
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import Prism from "prismjs";
-import '../../utils/prism-language-imports';
+import '../../styles/loading_animation.css';
+// import planetsystem from '../../images/planet1.png';
 import { sharedInfoContext } from '../../context/sharedContext';
-import planetsystem from '../../images/planet1.png'
-import '../../styles/loading_animation.css'
+import { ChatSessionProps } from '../../utils/chatbotInterfaces';
 import WaitingView from './waitingForQView';
-import { CurrentConversationItem } from '../../utils/chatbotInterfaces';
-
-const useTypewriterHTML = (html: string, charactersPerSecond: number = 80, chatContainerRef: React.RefObject<HTMLDivElement | null>) => {
-    const [displayedHTML, setDisplayedHTML] = useState('');
-
-    useEffect(() => {
-        const textContent = html.replace(/<[^>]+>/g, '');
-        let i = 0;
-        let currentHTML = '';
-
-        const updateHTML = () => {
-            if (i < textContent.length) {
-                while (html[currentHTML.length] === '<') {
-                    const closeIndex = html.indexOf('>', currentHTML.length);
-                    currentHTML += html.slice(currentHTML.length, closeIndex + 1);
-                }
-                currentHTML += html[currentHTML.length];
-                setDisplayedHTML(currentHTML);
-                i++;
-                setTimeout(() =>{
-                    updateHTML();
-                    Prism.highlightAll();
-                    if (chatContainerRef.current) {
-                        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-                    }
-                }, 1000 / charactersPerSecond);
-                
-            }
-        };
-
-        updateHTML();
-
-        return () => {
-            // No need to clear any interval
-        };
-    }, [html, charactersPerSecond]);
-
-    return displayedHTML;
-};
+import BotMessage from './bot_response/botMessage';
 
 
-interface BotMessageInterface {
-    message: CurrentConversationItem;
-    index: number;
-    completedMessages: number[];
-    setCompletedMessages: React.Dispatch<React.SetStateAction<number[]>>;
-    chatContainerRef: React.RefObject<HTMLDivElement | null>;
 
-}
-const BotMessage: React.FC<BotMessageInterface> = ({ message, index, completedMessages, setCompletedMessages, chatContainerRef }) => {
-    const displayedHTML = useTypewriterHTML(message.content[0].html_text || '<p>No message bot response...</p>', 80, chatContainerRef);
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (displayedHTML === (message.content[0].html_text || '<p>No message bot response...</p>')) {
-            setCompletedMessages((prev) => [...prev, index]);
-        }
-         // Apply Prism highlighting after each update
-         if (containerRef.current) {
-            Prism.highlightAllUnder(containerRef.current);
-        }
-    }, [displayedHTML, message.content[0].html_text, index, setCompletedMessages]);
-
-    if (completedMessages.includes(index)) {
-        return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: message.content[0].html_text || '<p>Bot response missing...</p>' }} />;
-    }
-
-    return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: displayedHTML }} />;
-};
-
-interface ChatSessionProps {
-    chatContainerRef: React.RefObject<HTMLDivElement | null>;
-}
-
-function ChatSession({chatContainerRef}: ChatSessionProps) {
+function ChatSession({ chatContainerRef }: ChatSessionProps) {
     const { currentConversation, setCurrentConversation, speakerTurn, AIResponse, payload, isLoading, setIsLoading } = useContext(sharedInfoContext);
-    const [showContext, setShowContext] = useState(false);
     const [showContextObj, setShowContextObj] = useState<{ [key: number]: boolean }>({});
-    const messageTextRef = useRef(null);
     const [completedMessages, setCompletedMessages] = useState<number[]>([]);
 
     useEffect(() => {
@@ -100,14 +27,14 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
             const aiRespType = 'text';
             const data_sources = AIResponse['source_documents'];
 
-            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources, show_context: showContext }]); // Add the AI's response to the current conversation
+            // Add the AI's response to the current conversation
+            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]); 
         } else {
             console.log('waiting...');
             return;  // Return early if speakerTurn is neither 'user' nor 'bot'
         }
     }, [speakerTurn])
 
-    
 
     async function fetchChatHistory() {
         const response = await axios.get('http://localhost:5000/chat-history')
@@ -129,13 +56,14 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
             const data_sources = response.data.chat_history[lastChatEntry]['content'][0]['source_documents']
 
 
-            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources, show_context: showContext }]); // Add the AI's response to the current conversation
+            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]); // Add the AI's response to the current conversation
 
         } else {
             console.log('No current conversation history available');
         }
 
     }
+
 
     const copyToClipboard = (text: any) => {
         navigator.clipboard.writeText(text).then(() => {
@@ -147,6 +75,7 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
         });
     };
 
+
     return (
         <div className='container chat-window rounded mb-3 pt-3'>
             {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
@@ -154,19 +83,16 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                     <div className='d-flex flex-row'>
                         <div>
                             {message.role === 'user' ? (
-                                // <span className='userChatHistory'>User: </span>
+                                /* USER -- Icon */
                                 <span className='userChatHistory'>
-                                    {/* <i className="bi bi-person-circle fs-3 ps-1 pe-3"></i> */}
+                                    {/* Could add user icon here is wanted*/}
                                 </span>
 
                             ) : (
-                                // <span className='botResponse'>Assitant: </span>
+                                /* BOT -- Icon */
                                 <div className="botResponse">
                                     <span className=''>
                                         <i className="botIcon bi bi-moon-stars-fill fs-3 ps-1 pe-3"></i><br /><br />
-                                        {/* <img src={planetsystem} alt="system" /> */}
-
-
                                     </span>
                                 </div>
                             )}
@@ -174,11 +100,10 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                         <div className='d-flex flex-fill'>
                             <div className='flex-fill flex-grow-1 align-content-center'>
                                 {message.role === 'user' ? (
+                                    /* USER -- message */
                                     <div className=''><pre className='userMessage'>{message.content[0].text}</pre></div>
-                                    // <div className=''>{message.content[0].text}</div>
-
                                 ) : (
-                                    // <div ref={messageTextRef} dangerouslySetInnerHTML={{ __html: message.content[0].html_text }} />
+                                    /* BOT -- message */
                                     <BotMessage
                                         message={message}
                                         index={index}
@@ -188,7 +113,8 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                                     />
                                 )}
                             </div>
-                            <div> {/* message-text */}
+                            <div>
+                                {/* BOT -- extra buttons on right side */}
                                 {message.role === 'bot' ? (
                                     <div className='d-flex'>
                                         <span className='botButtons'>
@@ -206,9 +132,9 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                                 )}
                             </div>
                         </div>
-
                     </div>
                     <div className='context'>
+                        {/* BOT -- shows the sources when using the bedrock agent */}
                         {message.data_sources != null && message.role === 'bot' ? (
                             <>
                                 <p><button className='' onClick={() => { setShowContextObj((prev) => ({ ...prev, [index]: !prev[index] })); }}><em>Context</em> {showContextObj[index] ? (<i className='bi bi-caret-up-fill'></i>) : (<i className='bi bi-caret-down-fill'></i>)}</button> </p>
@@ -222,7 +148,6 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                                     ))) : (
                                         <div style={{ visibility: 'hidden' }}></div>
                                     )}
-
                                 </div>
                             </>
                         ) : (
@@ -230,13 +155,9 @@ function ChatSession({chatContainerRef}: ChatSessionProps) {
                         )}
                     </div>
                 </div>
-
             ))) : (
                 <div className='d-flex justify-content-center'>
                     <WaitingView />
-                    {/* <h3> Ask a question to start a chat <strong>...</strong></h3> */}
-                    {/* <p className='fs-3'><strong>No current conversation history</strong> </p> <i className="bi bi-three-dots fs-1"></i> */}
-                    {/* <img src="../../public/images/nodata.svg" alt="no data" /> */}
                 </div>
             )}
 

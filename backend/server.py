@@ -1,17 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from botocore.exceptions import ClientError
-from botocore.eventstream import EventStream
 from cors import cors_policy
-import json
-from langchain_aws import ChatBedrock
-from langchain.retrievers.bedrock import AmazonKnowledgeBasesRetriever
-from langchain.prompts import PromptTemplate
-from langchain.chains import RetrievalQA, create_retrieval_chain
 import pprint
 import aws_initialization                          
-import markdown    
-import re
 import constants
 from ai_api_calls.bedrockAgent import query_knowledge_base
 from ai_api_calls.bedrockKBLangchain import query_bedrock_kb_langchain

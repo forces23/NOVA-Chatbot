@@ -7,8 +7,6 @@ interface SharedInfoType {
     SetAIResponse: React.Dispatch<React.SetStateAction<{}>>;
     isLoading: boolean;
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    settings: SettingsType;
-    setSettings: React.Dispatch<React.SetStateAction<SettingsType>>;
     payload: PostPayload;
     setPayload: React.Dispatch<React.SetStateAction<PostPayload>>;
     currentConversation: CurrentConversationItem[];
@@ -24,8 +22,6 @@ export const sharedInfoContext = createContext<SharedInfoType>({
     SetAIResponse: () => {}, 
     isLoading: false,
     setIsLoading: () => {}, 
-    settings: { temperature: 0.7, topP: 0.9, topK: 50 },
-    setSettings: () => {}, 
     payload: { 'prompt': '', temperature: 0.7, topP: 0.9, topK: 50 },
     setPayload: () => {},  
     currentConversation: [],
@@ -44,7 +40,6 @@ interface SharedInfoProviderProps {
 export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
     const [AIResponse, SetAIResponse] = useState<{}>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [settings, setSettings] = useState({ temperature: 0.7, topP: 0.9, topK: 50 });
     const [payload, setPayload] = useState<PostPayload>({ 'prompt': '', temperature: 0.7, topP: 0.9, topK: 50 })
     const [currentConversation, setCurrentConversation] = useState<CurrentConversationItem[]>([]);
     const [speakerTurn, setSpeakerTurn] = useState<string>('');
@@ -55,8 +50,6 @@ export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
             SetAIResponse,
             isLoading,
             setIsLoading,
-            settings,
-            setSettings,
             payload,
             setPayload,
             currentConversation, 

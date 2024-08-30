@@ -1,27 +1,32 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import axios from 'axios';
-import ChatSession from "./current_chat_window/chatSession";
-import { PostPayload, CurrentConversationItem } from "../utils/chatbotInterfaces";
 import { sharedInfoContext } from "../context/sharedContext";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import CurrentChatSession from "./current_chat_session/currentChatSession";
 import VoiceToText from "./voice-to-text/voice-to-text-1";
 
 function Chatbot() {
-    const { AIResponse, SetAIResponse, payload, setPayload, currentConversation, speakerTurn, setSpeakerTurn, isLoading, setIsLoading } = useContext(sharedInfoContext);
+    const { SetAIResponse, payload, setPayload, currentConversation, setSpeakerTurn, setIsLoading, isLoading } = useContext(sharedInfoContext);
     const inputRef = useRef<HTMLTextAreaElement>(null)
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
+    const [isSendBtnDisabled, setIsSendBtnDisabled] = useState<boolean>(true);
 
-    useEffect(() => { }, [payload])
+    // useEffect(() => { }, [payload])
 
+    /*
+    * Scroll to bottom of current conversation history 
+    * this will make sure that the user sent message will cause the auto scroll
+    */
     useEffect(() => {
-        // Scroll to bottom of current conversation history 
-        //  -- this will make sure that the user sent message will cause the auto scroll
         const chatContainer = chatContainerRef.current;
         if (chatContainer) {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     }, [currentConversation]);
 
+    /*
+    * Allows user to press the enter key to submit the query and 
+    * allows the user to press shift+enter to go to new line within the textarea
+    */
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
             if (event.key === 'Enter') {
@@ -43,6 +48,22 @@ function Chatbot() {
         }
 
     });
+
+    /*
+    * Makes sure that the user is not able to send an empty string and makes sure that while the ai is generating a 
+    * response the user cant send another query till ai has finished
+    */
+    useEffect(() => {
+        if (payload.prompt.trim() == '') {
+            setIsSendBtnDisabled(true);
+        }
+        else if (isLoading) {
+            setIsSendBtnDisabled(true);
+        }
+        else {
+            setIsSendBtnDisabled(false);
+        }
+    }, [payload, isLoading]);
 
     async function invokeBedrock() {
         setIsLoading(true);
@@ -103,7 +124,7 @@ function Chatbot() {
         }
     }
 
-    const adjustTextareaHeight = () => {
+    function adjustTextareaHeight() {
         if (inputRef.current) {
             inputRef.current.style.height = 'auto';
             inputRef.current.style.height = `${Math.min(inputRef.current.scrollHeight, 150)}px`;
@@ -126,33 +147,24 @@ function Chatbot() {
     function handleUserInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const { name, value } = e.target;
         setPayload(prevPayloadSettings => ({ ...prevPayloadSettings, [name]: value }));
-
-        // console.log('New Prompt:', payload)
-
         adjustTextareaHeight();
     }
 
-    const handleTextChange = (text: string) => {
-        // setPayload({ prompt: text });
+    function handleTextChange(text: string) {
         setPayload(prevPayload => ({ ...prevPayload, 'prompt': text }));
     };
 
-    function handleVoice() {
-        console.log('Voice to text feature not implemented yet');
-
-    }
 
     return (
         <>
             <div className="chat-area">
-                <div ref={chatContainerRef} className="chat-session">
-                    {/* <!-- Chat messages will be added here --> */}
+                <div ref={chatContainerRef} className="current-chat-session">
                     <div >
-                        <ChatSession chatContainerRef={chatContainerRef}/>
+                        <CurrentChatSession chatContainerRef={chatContainerRef} />
                     </div>
                 </div>
                 <div className="input-area">
-                    <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded-pill bg-secondary'>
+                    <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded rounded-5  bg-secondary'>
                         <textarea
                             ref={inputRef}
                             name="prompt"
@@ -161,13 +173,15 @@ function Chatbot() {
                             value={payload.prompt}
                             onChange={handleUserInput}
                             rows={1}
+                            disabled={isLoading}
                         ></textarea>
-                        {/* <button className="voice-to-text btn btn-primary me-1 border border-0 rounded-pill my-1" onClick={() => handleVoice()}>
-                            <i className='bi bi-mic p-2'></i>
-                        </button> */}
                         <VoiceToText onTextChange={handleTextChange} />
-                        <div className='d-flex align-items-center'>
-                            <button className="btn btn-primary me-1 border border-0 rounded-pill my-1" onClick={handleSendBtn}>
+                        <div className='d-flex align-items-end'>
+                            <button
+                                className="btn btn-primary me-2 border border-0 rounded-pill my-1"
+                                onClick={handleSendBtn}
+                                disabled={isSendBtnDisabled}
+                            >
                                 <i className='bi bi-arrow-right p-2'></i>
                             </button>
                         </div>

@@ -1,3 +1,6 @@
+// this file is used to import the langauges needed for the sysntax highlighting using PrismJs
+// the ones commented out right now causes errors
+
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-javascript";

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function TitleBar() {
 
     function goToGame(){
@@ -27,7 +25,6 @@ function TitleBar() {
             </div>
             <div>
                 {/* Filler div to create empty space to the right of title */}
-                {/* <button className='rounded-pill'>switch</button> */}
                 <label className="switch position-absolute top-0 end-0 m-2">
                     <input type="checkbox" id="viewSel" onClick={() =>{}} />
                     <span className="slider round"></span>
