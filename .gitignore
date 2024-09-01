@@ -235,5 +235,8 @@ sketch
 .ionide
 
 
+# Files and Folder not to include
+aws-lambda-deployment-1.zip
+
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,react,python

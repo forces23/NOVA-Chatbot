@@ -82,7 +82,6 @@ prog_langs = [
     "fortran",
     "gambit",
     "go",
-    "git",
     "graphql",
     "groovy",
     "guile",
