@@ -79,8 +79,10 @@ function Chatbot() {
                 }
             );
 
+            const jsonResponse =  await response.json();
+
             // const data = response.data;
-            const data = response;
+            const data = jsonResponse.body; // You can also read the `ReadableStream` chunk by chunk using a reader and a loop.
 
             console.log(data);
             SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
