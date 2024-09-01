@@ -80,6 +80,7 @@ function Chatbot() {
             );
 
             const jsonResponse =  await response.json();
+            console.log(jsonResponse)
 
             // const data = response.data;
             const data = jsonResponse.body; // You can also read the `ReadableStream` chunk by chunk using a reader and a loop.
