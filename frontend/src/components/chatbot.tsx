@@ -79,7 +79,9 @@ function Chatbot() {
                 }
             );
 
-            const data = response.data;
+            // const data = response.data;
+            const data = response;
+
             console.log(data);
             SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
 
