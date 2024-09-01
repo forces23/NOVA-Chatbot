@@ -68,7 +68,9 @@ function Chatbot() {
     async function invokeBedrock() {
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
+            // const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
+            const response = await axios.post('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI', payload);
+
             const data = response.data;
             console.log(data);
             SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
@@ -85,44 +87,44 @@ function Chatbot() {
 
     }
 
-    async function invokeBedrockAgent() {
-        try {
-            const response = await axios.post('http://localhost:5000/invoke-agent-knowledge-base', payload);
-            const data = response.data;
-            console.log(data);
+    // async function invokeBedrockAgent() {
+    //     try {
+    //         const response = await axios.post('http://localhost:5000/invoke-agent-knowledge-base', payload);
+    //         const data = response.data;
+    //         console.log(data);
 
-            SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
+    //         SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
 
-            setSpeakerTurn('bot');
+    //         setSpeakerTurn('bot');
 
-            // setUserInput(''); // Clear the input field after the response is received
-            setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
+    //         // setUserInput(''); // Clear the input field after the response is received
+    //         setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
 
-        }
-        catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
+    //     }
+    //     catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // }
 
-    async function queryBedrockKBLangchain() {
-        try {
-            console.log(payload);
-            const response = await axios.post('http://localhost:5000/bedrock-kd-langchain', payload);
-            const data = response.data;
-            console.log(data);
+    // async function queryBedrockKBLangchain() {
+    //     try {
+    //         console.log(payload);
+    //         const response = await axios.post('http://localhost:5000/bedrock-kd-langchain', payload);
+    //         const data = response.data;
+    //         console.log(data);
 
-            SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
+    //         SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
 
-            setSpeakerTurn('bot');
+    //         setSpeakerTurn('bot');
 
-            // setUserInput(''); // Clear the input field after the response is received
-            setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
+    //         // setUserInput(''); // Clear the input field after the response is received
+    //         setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
 
-        }
-        catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
+    //     }
+    //     catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // }
 
     function adjustTextareaHeight() {
         if (inputRef.current) {
