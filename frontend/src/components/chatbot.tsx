@@ -69,7 +69,13 @@ function Chatbot() {
         setIsLoading(true);
         try {
             // const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
-            const response = await axios.post('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI', payload);
+            const response = await fetch('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI',  
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            );
 
             const data = response.data;
             console.log(data);
