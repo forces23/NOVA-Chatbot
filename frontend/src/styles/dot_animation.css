@@ -1,7 +1,9 @@
 .dotAnimation {
     /* position: absolute; */
-    width: 400px; /* OG 200 */
-    height: 400px; /* OG 200 */
+    width: 400px;
+    /* OG 200 */
+    height: 400px;
+    /* OG 200 */
     margin: auto;
     transform: rotate(45deg);
     margin-top: 100px;
@@ -12,9 +14,13 @@
     /* right: 0; */
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .dotAnimation {
         width: 300px;
         height: 300px;
+    }
+
+    .dotAnimation {
+        margin: 44px auto auto 47px;
     }
 }
