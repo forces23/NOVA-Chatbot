@@ -57,6 +57,7 @@ code {
 /* ---- Current Conversation Styles ---- */
 .current-chat-session {
     /* flex: 1; */
+    height: 100%;
     overflow-y: auto;
     padding: 5px;
     background-color: #333333;
