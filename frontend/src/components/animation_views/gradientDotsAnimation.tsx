@@ -176,7 +176,7 @@ export default function GradientDotsAnimation() {
 
     return (
         <>
-            <div className='hide-mobile'>
+            <div className=''>
                 <canvas ref={canvasRef} className='dotAnimation ' width={boundaryX} height={boundaryY}></canvas>
             </div>
         </>
