@@ -384,4 +384,9 @@ input:checked+.slider:before {
         display: none;
     }
 
+    .hide-mobile {
+        display: none;
+        visibility: hidden;
+        border: 1px solid yellow;
+    }
 }
