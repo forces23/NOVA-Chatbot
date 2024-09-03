@@ -16,7 +16,7 @@ html {
 .main-content {
     display: flex;
     flex: 1;
-    overflow: scroll;
+    overflow: hidden;
     /* margin-top: 60px; */
     /* Adjust this value to match the height of your title bar */
 }
@@ -57,7 +57,7 @@ code {
 /* ---- Current Conversation Styles ---- */
 .current-chat-session {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 5px;
     background-color: #333333;
     color: #ffffff;
