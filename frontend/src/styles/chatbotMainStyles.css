@@ -119,7 +119,8 @@ code {
 
 /* ---- Title Bar Styles ---- */
 .title-bar {
-    background-color: #333333;
+    /* background-color: #333333; */
+    background-color: #f70505;
     color: #fff;
     padding: 10px;
     font-weight: bold;
