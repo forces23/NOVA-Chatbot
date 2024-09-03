@@ -12,9 +12,9 @@ function HomePage() {
   return(
     <div className='override-bootstrap'>
       <div className="chat-container">
-        <div className="title-bar">
+        {/* <div className="title-bar">
           <TitleBar />
-        </div>
+        </div> */}
         <div className="main-content">
           {/* <SidePane /> */}
           <Chatbot />
