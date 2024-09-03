@@ -10,7 +10,7 @@ html {
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .main-content {
@@ -29,6 +29,8 @@ code {
     flex: 1;
     display: flex;
     flex-direction: column;
+    /* height: 100vh; */
+
 }
 
 /* --------------------------------------------------------------- */

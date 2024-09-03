@@ -9,16 +9,14 @@ import Game_A from './games/game-a';
 
 
 function HomePage() {
-  return(
-    <div className='override-bootstrap'>
-      <div className="chat-container">
-        {/* <div className="title-bar">
-          <TitleBar />
-        </div> */}
-        <div className="main-content">
-          {/* <SidePane /> */}
-          <Chatbot />
-        </div>
+  return (
+    <div className="chat-container" style={{ height: "100vh" }}>
+      <div className="title-bar">
+        <TitleBar />
+      </div>
+      <div className="main-content">
+        {/* <SidePane /> */}
+        <Chatbot />
       </div>
     </div>
   )
