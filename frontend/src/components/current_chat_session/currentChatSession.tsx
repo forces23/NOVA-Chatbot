@@ -77,7 +77,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
 
 
     return (
-        <div className='container chat-window rounded pt-3'>
+        <div className='chat-window rounded pt-3'>
             {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
                 <div key={index} className='rounded px-4 py-4 chat-bubbles mb-3'  >
                     <div className='d-flex flex-row'>
