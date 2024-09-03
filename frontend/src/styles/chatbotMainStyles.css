@@ -16,7 +16,7 @@ html {
 .main-content {
     display: flex;
     flex: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* margin-top: 60px; */
     /* Adjust this value to match the height of your title bar */
 }
@@ -64,10 +64,6 @@ code {
     /* z-index: 2; */
 }
 
-/* .override-bootstrap .chat-window {
-    margin-bottom: 45px;
-
-} */
 
 .userChatHistory {
     /* color: #87cfff; */
