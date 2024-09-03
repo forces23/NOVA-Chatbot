@@ -359,8 +359,8 @@ input:checked+.slider:before {
         z-index: 3;
     }
 
-    .cat-area{
-        height: calc(100% - 50px);
+    .chat-area{
+        height: calc(100%);
     }
 
     .side-pane.collapsed {
