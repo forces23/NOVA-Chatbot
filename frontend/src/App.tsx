@@ -15,7 +15,7 @@ function HomePage() {
         <TitleBar />
       </div>
       <div className="main-content">
-        {/* <SidePane /> */}
+        <SidePane />
         <Chatbot />
       </div>
     </div>
