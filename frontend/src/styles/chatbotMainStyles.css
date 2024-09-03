@@ -17,7 +17,7 @@ html {
     display: flex;
     flex: 1;
     overflow: hidden;
-    margin-top: 50px;
+    /* margin-top: 60px; */
     /* Adjust this value to match the height of your title bar */
 }
 
@@ -123,14 +123,14 @@ code {
     color: #fff;
     padding: 10px;
     font-weight: bold;
-    /* border-bottom: 1px solid #dee2e6; */
-    position: absolute;
-    /* top: 5px; */
-    left: 0;
-    right: 0;
-    /* z-index: 1; */
-    position: fixed;
-    /* box-shadow: 0 2px 10px rgba(125, 103, 103, 0.421); */
+    /* /* border-bottom: 1px solid #dee2e6;  */
+    /* position: absolute; */
+    /* /* top: 5px;  */
+    /* left: 0; */
+    /* right: 0; */
+    /* /* z-index: 1;  */
+    /* position: fixed; */
+    /* /* box-shadow: 0 2px 10px rgba(125, 103, 103, 0.421);  */
 }
 
 .chatbot-name {
