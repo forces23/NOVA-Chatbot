@@ -78,18 +78,18 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
 
     return (
         <div className=''>
-            {/* {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
+            {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
                 <div key={index} className='rounded px-4 py-4 chat-bubbles mb-3'  >
                     <div className='d-flex flex-row'>
                         <div>
                             {message.role === 'user' ? (
-                                /* USER -- Icon *\/
+                                /* USER -- Icon */
                                 <span className='userChatHistory'>
-                                    {/* Could add user icon here is wanted*\/}
+                                    {/* Could add user icon here is wanted*/}
                                 </span>
 
                             ) : (
-                                /* BOT -- Icon *\/
+                                /* BOT -- Icon */
                                 <div className="botResponse">
                                     <span className=''>
                                         <i className="botIcon bi bi-moon-stars-fill fs-3 ps-1 pe-3"></i><br /><br />
@@ -100,10 +100,10 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                         <div className='d-flex flex-fill'>
                             <div className='flex-fill flex-grow-1 align-content-center'>
                                 {message.role === 'user' ? (
-                                    /* USER -- message *\/
+                                    /* USER -- message */
                                     <div className=''><pre className='userMessage'>{message.content[0].text}</pre></div>
                                 ) : (
-                                    /* BOT -- message *\/
+                                    /* BOT -- message */
                                     <BotMessage
                                         message={message}
                                         index={index}
@@ -114,7 +114,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                                 )}
                             </div>
                             <div>
-                                {/* BOT -- extra buttons on right side *\/}
+                                {/* BOT -- extra buttons on right side */}
                                 {message.role === 'bot' ? (
                                     <div className='d-flex'>
                                         <span className='botButtons'>
@@ -134,7 +134,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                         </div>
                     </div>
                     <div className='context'>
-                        {/* BOT -- shows the sources when using the bedrock agent *\/}
+                        {/* BOT -- shows the sources when using the bedrock agent */}
                         {message.data_sources != null && message.role === 'bot' ? (
                             <>
                                 <p><button className='' onClick={() => { setShowContextObj((prev) => ({ ...prev, [index]: !prev[index] })); }}><em>Context</em> {showContextObj[index] ? (<i className='bi bi-caret-up-fill'></i>) : (<i className='bi bi-caret-down-fill'></i>)}</button> </p>
@@ -156,11 +156,10 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                     </div>
                 </div>
             ))) : (
-                // <div className='d-flex justify-content-center'>
-                //     <WaitingView />
-                //     {/* <p>waiting...</p> *\/}
-                // </div>
-                <></>
+                <div className='d-flex justify-content-center'>
+                    <WaitingView />
+                    {/* <p>waiting...</p> */}
+                </div>
             )}
 
             {isLoading ? (
@@ -170,8 +169,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                 </div>
             ) : (
                 <></>
-            )} */}
-            <p>test</p>
+            )}
         </div>
     );
 };

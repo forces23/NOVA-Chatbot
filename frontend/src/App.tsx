@@ -10,7 +10,7 @@ import Game_A from './games/game-a';
 
 function HomePage() {
   return (
-    <div className="chat-container" style={{ height: "100vh" }}>
+    <div className="chat-container">
       <div className="title-bar">
         <TitleBar />
       </div>

@@ -173,11 +173,11 @@ function Chatbot() {
     return (
         <>
             <div className="chat-area">
-                <div ref={chatContainerRef} className="current-chat-session">
+                {/* <div ref={chatContainerRef} className="current-chat-session">
                     <div >
                         <CurrentChatSession chatContainerRef={chatContainerRef} />
                     </div>
-                </div>
+                </div> */}
                 <div className="input-area">
                     <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded rounded-5 bg-secondary'>
                         <textarea
