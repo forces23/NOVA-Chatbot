@@ -173,7 +173,7 @@ function Chatbot() {
     return (
         <>
             <div className="chat-area">
-                {/* <div ref={chatContainerRef} className="current-chat-session">
+                {/* <div ref={chatContainerRef} >
                     <div >
                         <CurrentChatSession chatContainerRef={chatContainerRef} />
                     </div>

@@ -10,11 +10,11 @@ import Game_A from './games/game-a';
 
 function HomePage() {
   return (
-    <div className="chat-container">
+    <div className="chat-container view-height">
       <div className="title-bar">
         <TitleBar />
       </div>
-      <div className="main-content">
+      <div className="main-content ">
         <SidePane />
         <Chatbot />
       </div>
