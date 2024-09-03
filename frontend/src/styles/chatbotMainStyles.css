@@ -352,7 +352,7 @@ input:checked+.slider:before {
 /* ================================================================= */
 
 /* ---- Media Queries ---- */
-@media (max-width: 100px) {
+@media (max-width: 768px) {
     .side-pane {
         position: absolute;
         height: calc(100% - 50px);
