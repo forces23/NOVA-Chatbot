@@ -176,7 +176,7 @@ export default function GradientDotsAnimation() {
 
     return (
         <>
-            <div className=''>
+            <div className='d-flex justify-content-center'>
                 <canvas ref={canvasRef} className='dotAnimation ' width={boundaryX} height={boundaryY}></canvas>
             </div>
         </>

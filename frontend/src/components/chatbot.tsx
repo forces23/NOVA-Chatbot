@@ -179,7 +179,7 @@ function Chatbot() {
                     </div>
                 </div>
                 <div className="input-area">
-                    <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded rounded-5  bg-secondary'>
+                    <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded rounded-5 bg-secondary'>
                         <textarea
                             ref={inputRef}
                             name="prompt"
