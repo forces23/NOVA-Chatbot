@@ -156,10 +156,11 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                     </div>
                 </div>
             ))) : (
-                <div className='d-flex justify-content-center'>
-                    <WaitingView />
-                    {/* <p>waiting...</p> */}
-                </div>
+                // <div className='d-flex justify-content-center'>
+                //     <WaitingView />
+                //     {/* <p>waiting...</p> */}
+                // </div>
+                <></>
             )}
 
             {isLoading ? (
