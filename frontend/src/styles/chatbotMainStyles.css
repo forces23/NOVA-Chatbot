@@ -16,7 +16,7 @@ html {
 .main-content {
     display: flex;
     flex: 1;
-    /* overflow: hidden; */
+    overflow: scroll;
     /* margin-top: 60px; */
     /* Adjust this value to match the height of your title bar */
 }
