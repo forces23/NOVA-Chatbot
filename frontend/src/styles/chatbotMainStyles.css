@@ -397,9 +397,9 @@ input:checked+.slider:before {
         display: none;
     }
 
-    /* .chat-area{
-        height: calc(100% - 50px);
-    } */
+    .view-height{
+        height: 90vh;
+    }
 
 
     
