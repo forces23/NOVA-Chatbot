@@ -12,7 +12,9 @@ interface SharedInfoType {
     currentConversation: CurrentConversationItem[];
     setCurrentConversation: React.Dispatch<React.SetStateAction<CurrentConversationItem[]>>; 
     speakerTurn: string;
-    setSpeakerTurn: React.Dispatch<React.SetStateAction<string>>;     
+    setSpeakerTurn: React.Dispatch<React.SetStateAction<string>>;   
+    isSidePaneCollapsed: boolean; 
+    setIsSidePaneCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
     
 }
 
@@ -27,7 +29,10 @@ export const sharedInfoContext = createContext<SharedInfoType>({
     currentConversation: [],
     setCurrentConversation: () => {},  // Add a function to update the current conversation array
     speakerTurn: '',
-    setSpeakerTurn: () => {},   
+    setSpeakerTurn: () => {}, 
+    isSidePaneCollapsed: true,
+    setIsSidePaneCollapsed: () => {}, 
+
     
 });
 
@@ -43,6 +48,7 @@ export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
     const [payload, setPayload] = useState<PostPayload>({ 'prompt': '', temperature: 0.7, topP: 0.9, topK: 50 })
     const [currentConversation, setCurrentConversation] = useState<CurrentConversationItem[]>([]);
     const [speakerTurn, setSpeakerTurn] = useState<string>('');
+    const [isSidePaneCollapsed, setIsSidePaneCollapsed] = useState(true);
 
     return (
         <sharedInfoContext.Provider value={{ 
@@ -55,7 +61,9 @@ export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
             currentConversation, 
             setCurrentConversation,
             speakerTurn, 
-            setSpeakerTurn
+            setSpeakerTurn,
+            isSidePaneCollapsed, 
+            setIsSidePaneCollapsed
         }}>
             {children}
         </sharedInfoContext.Provider>

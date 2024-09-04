@@ -1,6 +1,10 @@
-function TitleBar() {
+import { useContext } from "react";
+import { sharedInfoContext } from "../../context/sharedContext";
 
-    function goToGame(){
+function TitleBar() {
+    const { isSidePaneCollapsed, setIsSidePaneCollapsed } = useContext(sharedInfoContext);
+
+    function goToGame() {
         console.log('new Game starting...')
 
         // Open a new window
@@ -14,22 +18,36 @@ function TitleBar() {
 
     }
 
+
+
+    /**
+     * toggles the side pane to grow and collapse it
+     */
+    function toggleSidePane() {
+        setIsSidePaneCollapsed(!isSidePaneCollapsed);
+    }
+
     return (
         <div className='d-flex justify-content-between'>
-            <div >
-                <i className='bi bi-rocket-takeoff-fill fs-3 me-2' onClick={goToGame}></i>
+            <div>
+                <button id="toggleSidePane" className="btn btn-link" onClick={toggleSidePane}>
+                    <i className={`bi ${isSidePaneCollapsed ? 'bi-justify' : 'bi-x-lg'}`}></i>
+                </button>
             </div>
             <div>
                 {/* Neurological Operative Virtual Assistant */}
                 <h4 className='chatbot-name'>NOVA</h4>
             </div>
-            <div>
-                {/* Filler div to create empty space to the right of title */}
+            <div >
+                <i className='bi bi-rocket-takeoff-fill fs-3 me-3' onClick={goToGame}></i>
+            </div>
+            {/* <div>
+                {/* Filler div to create empty space to the right of title *\/}
                 <label className="switch position-absolute top-0 end-0 m-2">
                     <input type="checkbox" id="viewSel" onClick={() =>{}} />
                     <span className="slider round"></span>
-                </label>
-            </div>
+                </label> 
+            </div>*/}
         </div>
     )
 }
