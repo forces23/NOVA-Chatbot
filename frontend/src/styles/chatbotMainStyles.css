@@ -5,7 +5,10 @@ html {
     margin: 0;
     /* overflow: hidden; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #333333;
 }
+
+
 
 .chat-container {
     display: flex;
