@@ -9,7 +9,6 @@ html {
 }
 
 
-
 .chat-container {
     display: flex;
     flex-direction: column;
@@ -370,9 +369,7 @@ input:checked+.slider:before {
         z-index: 3;
     }
 
-    /* .chat-area{
-        height: calc(100%);
-    } */
+    
 
     .side-pane.collapsed {
         width: 0;
@@ -399,6 +396,11 @@ input:checked+.slider:before {
     .side-pane.collapsed .side-pane-footer {
         display: none;
     }
+
+    .chat-area{
+        height: calc(100% - 50px);
+    }
+
 
     
 }
