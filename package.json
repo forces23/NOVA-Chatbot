@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-bootstrap": "^2.10.5",
+    "sass": "^1.80.6"
+  }
+}

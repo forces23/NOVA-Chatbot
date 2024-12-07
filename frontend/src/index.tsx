@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
-import './styles/chatbotMainStyles.css';
+import './index.css';
+import './styles/mainStyles.scss';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';

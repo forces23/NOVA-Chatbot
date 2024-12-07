@@ -1,3 +1,4 @@
+import time
 from botocore.exceptions import ClientError
 import aws_initialization                          
 import markdown    
@@ -5,6 +6,7 @@ import pprint
 import json
 import constants
 import re
+import random
 
 pp = pprint.PrettyPrinter(indent=2)
 
@@ -24,7 +26,6 @@ def replace_code_blocks(match):
     if code_lines and code_lines[0].strip():
         code_lang = code_lines[0].split()[0].lower() if code_lines else 'default'
         if code_lang in constants.prog_langs:
-                
             code = '\n'.join(code_lines[1:]) # Remove the language line
         else:
               code_lang = 'default' 
@@ -76,11 +77,25 @@ def invoke_bedrock(request):
     # Convert native request to json
     json_request = json.dumps(native_request)
     
-    try:
-        response = bedrock_runtime.invoke_model(modelId=model_id, body=json_request)
-    except (ClientError, Exception) as e:
-        print(f'Error: Can not invoke "{model_id}". Reason: {e}')
-        exit(1)
+    retries = 5    
+    for attempt in range(retries):
+        try:
+            response = bedrock_runtime.invoke_model(modelId=model_id, body=json_request)
+            break
+        except ClientError as e:
+            if e.response['Error']['Code'] == 'ThrottlingException':
+                wait_time = (2 ** attempt) + random.uniform(0, 1)
+                print(f"Throttling error, retrying in {wait_time:.2f} seconds (attempt {attempt + 1}/{retries})")
+                time.sleep(wait_time)
+            else :
+                print(f'Error: Can not invoke "{model_id}". Reason: {e}')
+                raise
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            raise  # Raise other unexpected exceptions
+    else:
+        raise Exception("Max retries exceeded for invoking Bedrock")
+    print(response)
         
     # Decode the response body thats returned 
     ai_response = json.loads(response['body'].read())

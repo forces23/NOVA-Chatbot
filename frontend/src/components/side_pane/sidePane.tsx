@@ -14,7 +14,7 @@ function SidePane() {
 
     return (
         <>
-            <div className={`side-pane ${isSidePaneCollapsed ? 'collapsed' : ''}`} id="sidePane">
+            <div className={`sidePane ${isSidePaneCollapsed ? 'collapsed' : ''}`} id="sidePane">
                 <div className="side-pane-header">
                     <button  id="toggleSidePane" className="btn btn-link" onClick={toggleSidePane}>
                         <i className={`bi ${isSidePaneCollapsed ? 'bi-justify' : 'bi-x-lg'}`}></i>

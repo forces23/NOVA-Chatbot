@@ -45,7 +45,7 @@ function SettingsPane(){
     };
 
     return(
-        <div className='setting-container'>
+        <div className='setting-container'>{/** */}
             <button ref={buttonRef} id="settingsButton" className="btn btn-link" onClick={toggleSettings}>
                 <i className='bi bi-gear'></i>
             </button>

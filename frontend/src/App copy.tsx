@@ -10,24 +10,16 @@ import Game_A from './games/game-a';
 
 function HomePage() {
   return (
-    <div className="d-flex flex-column min-vh-100">
-      {/* Header */}
-      <TitleBar />
-
-      {/* Main Content */}
-      <main className="d-flex flex-grow-1">
-        <SidePane />
-
-        {/* Main Content Area */}
-        <div className="d-flex flex-grow-1">
+    <div className='override-bootstrap'>
+      <div className='chat-container d-flex flex-column'>
+        <div className='titleBar'>
+          <TitleBar />
+        </div>
+        <div className='main-content'> {/*mainContent*/}
+          <SidePane />
           <Chatbot />
         </div>
-      </main>
-
-      {/* Footer (Optional) */}
-      {/* <footer className="py-3 bg-light">
-        <p className="text-center">Footer</p>
-      </footer> */}
+      </div>
     </div>
   )
 }

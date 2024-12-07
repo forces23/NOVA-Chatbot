@@ -157,24 +157,24 @@ function Chatbot() {
 
     return (
         <>
-            <div className="chatbotMain" >
-                <div ref={chatContainerRef} className="currentChatSession">
+            <div className="chat-area">
+                <div ref={chatContainerRef} className="current-chat-session">
                     <div >
                         <CurrentChatSession chatContainerRef={chatContainerRef} />
                     </div>
                 </div>
-                <div className="inputArea ">
-                    <div className='inputBubbleWrapper'>
+                <div className="input-area">
+                    <div className='w-100 d-flex justify-content-center mb-2 border border-0 rounded rounded-5  bg-secondary'>
                         <textarea
                             ref={inputRef}
                             name="prompt"
-                            className="queryInput form-control bg-secondary rounded border border-0 d-flex flex-fill ms-4 me-2 text-white"
+                            className="form-control bg-secondary rounded border border-0 d-flex flex-fill ms-4 me-2 text-white"
                             placeholder="Type your message..."
                             value={payload.prompt}
                             onChange={handleUserInput}
                             rows={1}
                             disabled={isLoading}
-                        />
+                        ></textarea>
                         <VoiceToText onTextChange={handleTextChange} />
                         <div className='d-flex align-items-end'>
                             <button

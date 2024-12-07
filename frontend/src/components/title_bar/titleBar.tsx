@@ -1,6 +1,6 @@
 function TitleBar() {
 
-    function goToGame(){
+    function goToGame() {
         console.log('new Game starting...')
 
         // Open a new window
@@ -15,18 +15,14 @@ function TitleBar() {
     }
 
     return (
-        <div className='d-flex justify-content-between'>
-            <div >
-                <i className='bi bi-rocket-takeoff-fill fs-3 me-2' onClick={goToGame}></i>
-            </div>
-            <div>
-                {/* Neurological Operative Virtual Assistant */}
-                <h4 className='chatbot-name'>NOVA</h4>
-            </div>
+        <div className='titleBar '>
+            <i className='bi bi-rocket-takeoff-fill fs-3 me-2' onClick={goToGame}></i>
+            {/* Neurological Operative Virtual Assistant */}
+            <h4 className='chatbotName'>NOVA</h4>
             <div>
                 {/* Filler div to create empty space to the right of title */}
-                <label className="switch position-absolute top-0 end-0 m-2">
-                    <input type="checkbox" id="viewSel" onClick={() =>{}} />
+                <label className="switch">
+                    <input type="checkbox" id="viewSel" onClick={() => { }} />
                     <span className="slider round"></span>
                 </label>
             </div>
