@@ -12,11 +12,11 @@ function HomePage() {
   return (
     <div className="d-flex flex-column min-vh-100">
       {/* Header */}
-      {/* <TitleBar /> */}
+      <TitleBar />
 
       {/* Main Content */}
       <main className="d-flex flex-grow-1">
-        <SidePane />
+        {/* <SidePane /> */}
 
         {/* Main Content Area */}
         <div className="d-flex flex-grow-1">
