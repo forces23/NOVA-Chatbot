@@ -10,7 +10,7 @@ import Game_A from './games/game-a';
 
 function HomePage() {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column ">
       {/* Header */}
       <TitleBar />
 
