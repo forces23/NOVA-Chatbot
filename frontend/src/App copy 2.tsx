@@ -10,8 +10,24 @@ import Game_A from './games/game-a';
 
 function HomePage() {
   return (
-    <div className="">
-      hello world!!!!!
+    <div className="d-flex flex-column ">
+      {/* Header */}
+      <TitleBar />
+
+      {/* Main Content */}
+      <main className="d-flex flex-grow-1">
+        <SidePane />
+
+        {/* Main Content Area */}
+        <div className="d-flex flex-grow-1">
+          <Chatbot />
+        </div>
+      </main>
+
+      {/* Footer (Optional) */}
+      {/* <footer className="py-3 bg-light">
+        <p className="text-center">Footer</p>
+      </footer> */}
     </div>
   )
 }
