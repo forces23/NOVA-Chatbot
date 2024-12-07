@@ -51,6 +51,7 @@
   "devDependencies": {
     "@types/prismjs": "^1.26.4",
     "@types/react-speech-recognition": "^3.9.5",
-    "@types/webpack-env": "^1.18.5"
+    "@types/webpack-env": "^1.18.5",
+    "sass": "^1.82.0"
   }
 }
