@@ -37,14 +37,18 @@ from botocore.client import Config
 # else :
 #     print(f'Unknown Authentication Type: {AUTHENTICATION_TYPE}')
 #     session = boto3.Session()
-session = boto3.Session()
+session = boto3.Session(profile_name='bobby-personal', region_name='us-east-1')
 
-bedrock1 = boto3.client(
+
+print(session.get_credentials().get_frozen_credentials())
+print(session.region_name)
+
+bedrock1 = session.client(
     service_name="bedrock",
     region_name="us-east-1"
 )
 
-print(bedrock1.list_foundation_models())
+# print(bedrock1.list_foundation_models())
 
 bedrock_region = "us-east-1"
 model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
@@ -59,9 +63,9 @@ bedrock_config = Config(
 )
 
 # AWS Clients Configured
-bedrock_client = boto3.client(service_name="bedrock", region_name="us-east-1")
+bedrock_client = session.client(service_name="bedrock", region_name="us-east-1")
 # bedrock_client = session.client(service_name="bedrock", region_name="us-east-1")
-bedrock_rt_client = boto3.client(
+bedrock_rt_client = session.client(
     service_name="bedrock-runtime", region_name=bedrock_region
 )
 # bedrock_rt_client = session.client(
