@@ -16,7 +16,7 @@ function HomePage() {
 
       {/* Main Content */}
       <main className="d-flex flex-grow-1">
-        {/* <SidePane /> */}
+        <SidePane />
 
         {/* Main Content Area */}
         <div className="d-flex flex-grow-1">
