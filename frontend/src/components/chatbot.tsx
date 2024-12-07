@@ -65,11 +65,47 @@ function Chatbot() {
         }
     }, [payload, isLoading]);
 
+    // USED FOR LOCAL DEVELOPMENT BACKEND SERVICE    
+    // async function invokeBedrock() {
+    //     setIsLoading(true);
+    //     try {
+    //         const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
+    //         const data = response.data;
+    //         console.log(data);
+    //         SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
+
+    //         setSpeakerTurn('bot');
+
+    //         setPayload(prevPayload => ({ ...prevPayload, 'prompt': '' }));
+
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     } finally {
+    //         setIsLoading(false);
+    //     }
+    // }
+
+    // USED FOR AWS BACKEND SERVICE CALLS    
     async function invokeBedrock() {
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
-            const data = response.data;
+            // const response = await axios.post('http://localhost:5000/invoke-Bedrock-GenAI', payload);
+            const response = await fetch('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI',  
+                {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                }
+            );
+
+            const jsonResponse =  await response.json();
+            console.log(jsonResponse)
+
+            // const data = response.data;
+            const data = jsonResponse; // You can also read the `ReadableStream` chunk by chunk using a reader and a loop.
+
             console.log(data);
             SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
 
