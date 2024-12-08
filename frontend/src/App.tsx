@@ -48,7 +48,7 @@ function HomePage() {
           </Navbar.Brand> */}
         {/* </Navbar> */}
         <div className='pe-2'>
-          Created By Bobby Lawson
+          Created by Bobby Lawson
         </div>
         <div>
           {/* GitHub Link */}
