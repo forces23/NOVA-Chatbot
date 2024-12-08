@@ -5,14 +5,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
+}
+
+html,
+body {
+    /* Ensure body takes up full height */
+    height: 100%;
+}
+
 body {
     background-color: black !important;
-    margin: 0;
     /* Remove default margins */
-    height: 100%;
-    /* Ensure body takes up full height */
+    margin: 0;
 }
 
 .masterDiv {
