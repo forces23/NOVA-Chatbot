@@ -5,13 +5,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: 2px solid rgb(255, 0, 0); /* Temporarily visualize element boundaries */
+    /* Temporarily visualize element boundaries */
+    outline: 2px solid rgb(255, 0, 0);
 }
 
 html,
 body {
     /* Ensure body takes up full height */
     height: 100%;
+    /* Ensures full width */
+    width: 100%;
 }
 
 body {
@@ -63,4 +66,3 @@ footer {
     background-color: greenyellow;
 
 }
-
