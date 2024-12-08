@@ -15,15 +15,15 @@ function SidePane() {
     return (
         <>
             <div className={`sidePane ${isSidePaneCollapsed ? 'collapsed' : ''}`} id="sidePane">
-                <div className="side-pane-header">
+                <div className=''>
                     <button  id="toggleSidePane" className="btn btn-link" onClick={toggleSidePane}>
                         <i className={`bi ${isSidePaneCollapsed ? 'bi-justify' : 'bi-x-lg'}`}></i>
                     </button>
                 </div>
-                <div className="chat-sessions">
+                <div className='chat-sessions'>
                     {/* <!-- Chat sessions will be added here --> */}
                 </div>
-                <div className="side-pane-footer">
+                <div className=''>
                     <SettingsPane />
                 </div>
             </div>

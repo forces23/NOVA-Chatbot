@@ -5,8 +5,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Temporarily visualize element boundaries */
-    outline: 2px solid rgb(255, 0, 0);
 }
 
 html,
@@ -26,43 +24,142 @@ body {
 .masterDiv {
     @extend .d-flex;
     @extend .flex-column;
-    background-color: rgb(98, 253, 1);
-    /* Fallback for desktop */
-    // min-height: 100vh;
-    /* Use dynamic viewport height for modern mobile browsers */
-    // height: 100dvh;
+    // background-color: rgb(98, 253, 1);
     height: var(--viewport-height);
 }
 
 header {
-    background-color: yellow;
+    // background-color: yellow;
 }
 
 main {
-    background-color: orange;
+    // background-color: orange;
+    @extend .d-flex;
+    @extend .flex-row;
+    @extend .flex-grow-1;
+}
+
+nav{
+    background-color: rgb(0, 208, 255);
+}
+
+.sidebar {
+    @extend .d-flex;
+
+}
+
+.companionArea{
+    // background-color: rgb(255, 0, 68);
     @extend .d-flex;
     @extend .flex-column;
     @extend .flex-grow-1;
 }
 
 section {
-    background-color: whitesmoke;
+    // background-color: whitesmoke;
     // @extend .flex-grow-1;
+    
 }
 
 .convoLog {
-    background-color: teal;
+    // background-color: teal;
+    @extend .d-flex;
+    @extend .flex-column;
     @extend .flex-grow-1;
     @extend .mb-auto;
-
 }
 
 .inputQuery {
-    background-color: fuchsia;
-
+    // background-color: fuchsia;
 }
 
 footer {
-    background-color: greenyellow;
+    // background-color: greenyellow;
+    color: whitesmoke;
+}
 
+
+/* ---- Side Pane Styles ---- */
+.sidePane {
+    @extend .d-flex;
+    @extend .flex-column;
+    width: 250px;
+    /* background-color: #f8f9fa; */
+    background-color: #333333;
+    color: #fff;
+    /* border-right: 1px solid #dee2e6; */
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 10px rgba(125, 103, 103, 0.421);
+    z-index: 1;
+}
+
+.chat-sessions {
+    @extend .mb-auto;
+}
+
+/*----------------------------------------------------------------*/
+
+/* ---- Current Conversation Styles ---- */
+.currentChatSession {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .flex-grow-1;
+    overflow-y: auto;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* ---- User Input Area ---- */
+.inputArea {
+    @extend .px-2; 
+    @extend .pb-3; 
+    @extend .pt-1;
+    // @extend .d-flex;
+    background-color: #333333;
+}
+
+.input-area textarea {
+    flex: 1;
+    margin-right: 10px;
+    box-shadow: none !important;
+    min-height: 38px;
+    max-height: 150px;
+    resize: none;
+    overflow-y: auto;
+}
+
+.inputBubbleWrapper{
+    @extend .w-100; 
+    @extend .d-flex; 
+    @extend .justify-content-center;
+    @extend .mb-2;
+    @extend .border;
+    @extend .border-0; 
+    @extend .rounded; 
+    @extend .rounded-5;  
+    @extend .bg-secondary;
+}
+
+.queryInput:focus{
+    outline: none;
+    box-shadow: none !important;
+}
+
+/* ---- Title Bar Styles ---- */
+.titleBar {
+    @extend .d-flex; 
+    @extend .justify-content-between; 
+    @extend .align-items-center; 
+    @extend .p-1;
+    background-color: #333333;
+    color: #fff;
+    font-weight: bold;
+    // z-index: ;
+}
+
+.chatbotName {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }

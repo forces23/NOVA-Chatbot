@@ -1,27 +1,25 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import axios from 'axios';
-import { sharedInfoContext } from "../context/sharedContext";
+import { sharedInfoContext } from "../utils/sharedContext";
 import CurrentChatSession from "./current_chat_session/currentChatSession";
 import VoiceToText from "./voice-to-text/voice-to-text-1";
 
 function Chatbot() {
-    const { SetAIResponse, payload, setPayload, currentConversation, setSpeakerTurn, setIsLoading, isLoading } = useContext(sharedInfoContext);
+    const { SetAIResponse, payload, setPayload, currentConversation, setSpeakerTurn, setIsLoading, isLoading} = useContext(sharedInfoContext);
     const inputRef = useRef<HTMLTextAreaElement>(null)
-    const chatContainerRef = useRef<HTMLDivElement | null>(null);
+    // const chatContainerRef = useRef<HTMLDivElement | null>(null);
     const [isSendBtnDisabled, setIsSendBtnDisabled] = useState<boolean>(true);
 
-    // useEffect(() => { }, [payload])
-
-    /*
-    * Scroll to bottom of current conversation history 
-    * this will make sure that the user sent message will cause the auto scroll
-    */
-    useEffect(() => {
-        const chatContainer = chatContainerRef.current;
-        if (chatContainer) {
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-    }, [currentConversation]);
+    // /*
+    // * Scroll to bottom of current conversation history 
+    // * this will make sure that the user sent message will cause the auto scroll
+    // */
+    // useEffect(() => {
+    //     const chatContainer = chatContainerRef.current;
+    //     if (chatContainer) {
+    //         chatContainer.scrollTop = chatContainer.scrollHeight;
+    //     }
+    // }, [currentConversation]);
 
     /*
     * Allows user to press the enter key to submit the query and 
@@ -194,11 +192,9 @@ function Chatbot() {
     return (
         <>
             <div className="chatbotMain">
-                <div ref={chatContainerRef} className="currentChatSession">
-                    <div >
-                        <CurrentChatSession chatContainerRef={chatContainerRef} />
-                    </div>
-                </div>
+                {/* <div ref={chatContainerRef} className="currentChatSession"> */}
+                        <CurrentChatSession />
+                {/* </div> */}
                 <div className="inputArea ">
                     <div className='inputBubbleWrapper'>
                         <textarea

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from 'react';
-import { sharedInfoContext } from '../../context/sharedContext';
+import { sharedInfoContext } from '../../utils/sharedContext';
 
 
 function SettingsPane(){

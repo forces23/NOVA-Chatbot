@@ -41,56 +41,56 @@ code {
 
 /* --------------------------------------------------------------- */
 
-/* ---- User Input Area ---- */
-.inputArea {
-    @extend .px-2; 
-    @extend .pb-3; 
-    @extend .pt-1;
-    @extend .d-flex;
-    background-color: #333333;
-}
+// /* ---- User Input Area ---- */
+// .inputArea {
+//     @extend .px-2; 
+//     @extend .pb-3; 
+//     @extend .pt-1;
+//     @extend .d-flex;
+//     background-color: #333333;
+// }
 
-.input-area textarea {
-    flex: 1;
-    margin-right: 10px;
-    box-shadow: none !important;
-    min-height: 38px;
-    max-height: 150px;
-    resize: none;
-    overflow-y: auto;
-}
+// .input-area textarea {
+//     flex: 1;
+//     margin-right: 10px;
+//     box-shadow: none !important;
+//     min-height: 38px;
+//     max-height: 150px;
+//     resize: none;
+//     overflow-y: auto;
+// }
 
-.inputBubbleWrapper{
-    @extend .w-100; 
-    @extend .d-flex; 
-    @extend .justify-content-center;
-    @extend .mb-2;
-    @extend .border;
-    @extend .border-0; 
-    @extend .rounded; 
-    @extend .rounded-5;  
-    @extend .bg-secondary;
-}
+// .inputBubbleWrapper{
+//     @extend .w-100; 
+//     @extend .d-flex; 
+//     @extend .justify-content-center;
+//     @extend .mb-2;
+//     @extend .border;
+//     @extend .border-0; 
+//     @extend .rounded; 
+//     @extend .rounded-5;  
+//     @extend .bg-secondary;
+// }
 
-.queryInput:focus{
-    outline: none;
-    box-shadow: none !important;
-}
+// .queryInput:focus{
+//     outline: none;
+//     box-shadow: none !important;
+// }
 
 /*----------------------------------------------------------------*/
 
 /* ---- Current Conversation Styles ---- */
-.currentChatSession {
-    @extend .flex-fill;
-    overflow-y: auto;
-    background-color: #333333;
-    color: #ffffff;
-}
+// .currentChatSession {
+//     // @extend .flex-fill;
+//     overflow-y: auto;
+//     background-color: #333333;
+//     color: #ffffff;
+// }
 
-.override-bootstrap .chat-window {
-    margin-bottom: 45px;
+// .override-bootstrap .chat-window {
+//     margin-bottom: 45px;
 
-}
+// }
 
 .userChatHistory {
     /* color: #87cfff; */
@@ -140,58 +140,58 @@ code {
 } */
 /* -------------------------------------------------------- */
 
-/* ---- Title Bar Styles ---- */
-.titleBar {
-    @extend .d-flex; 
-    @extend .justify-content-between; 
-    @extend .align-items-center; 
-    @extend .p-1;
-    background-color: #333333;
-    color: #fff;
-    font-weight: bold;
-    z-index: 2;
-}
+// /* ---- Title Bar Styles ---- */
+// .titleBar {
+//     @extend .d-flex; 
+//     @extend .justify-content-between; 
+//     @extend .align-items-center; 
+//     @extend .p-1;
+//     background-color: #333333;
+//     color: #fff;
+//     font-weight: bold;
+//     // z-index: ;
+// }
 
-.chatbotName {
-    font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
+// .chatbotName {
+//     font-family: "Orbitron", sans-serif;
+//     font-optical-sizing: auto;
+//     font-weight: 700;
+//     font-style: normal;
+// }
 
 /* ---------------------------------------------------------------------------------- */
 
 /* ---- Side Pane Styles ---- */
-.sidePane {
-    width: 250px;
-    /* background-color: #f8f9fa; */
-    background-color: #333333;
-    color: #fff;
-    /* border-right: 1px solid #dee2e6; */
-    transition: width 0.3s ease;
-    box-shadow: 2px 0 10px rgba(125, 103, 103, 0.421);
-    z-index: 1;
-}
+// .sidePane {
+//     width: 250px;
+//     /* background-color: #f8f9fa; */
+//     background-color: #333333;
+//     color: #fff;
+//     /* border-right: 1px solid #dee2e6; */
+//     transition: width 0.3s ease;
+//     box-shadow: 2px 0 10px rgba(125, 103, 103, 0.421);
+//     z-index: 1;
+// }
 
 .sidePane.collapsed {
     width: 50px;
 }
 
-.sidePane-header {
-    padding-top: 10px;
-    /* border-bottom: 1px solid #dee2e6; */
-}
+// .sidePane-header {
+//     padding-top: 10px;
+//     /* border-bottom: 1px solid #dee2e6; */
+// }
 
-.sidePane-footer {
-    padding: 0;
-    /* just there for place holder */
-    /* border-top: 1px solid #dee2e6; */
-}
+// .sidePane-footer {
+//     padding: 0;
+//     /* just there for place holder */
+//     /* border-top: 1px solid #dee2e6; */
+// }
 
-.chat-sessions {
-    overflow-y: auto;
-    height: calc(100% - 133px);
-}
+// .chat-sessions {
+//     overflow-y: auto;
+//     height: calc(100% - 133px);
+// }
 
 #toggleSidePane {
     background: none;

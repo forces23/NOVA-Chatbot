@@ -1,10 +1,10 @@
 import '../../styles/dot_animation.css';
 import GradientDotsAnimation from '../animation_views/gradientDotsAnimation';
 
-function WaitingView() {
+function WaitingForQView() {
     return (
         <>
-            <div className='d-flex flex-column'>
+            <div className='flex-grow-1'> {/*justify-content-center*/}
             {/* <div> */}
                 <h3 className='chatbot-name d-flex justify-content-center pt-5'> Ask a question to start a chat <strong>...</strong></h3>
                 {/* <GradientDotsAnimation/> */}
@@ -13,4 +13,4 @@ function WaitingView() {
     )
 }
 
-export default WaitingView;
+export default WaitingForQView;

@@ -1,4 +1,4 @@
-import React, { useState, createContext, ReactNode } from 'react';
+import React, { useState, createContext, ReactNode, useRef } from 'react';
 import { CurrentConversationItem, PostPayload, SettingsType } from '../utils/chatbotInterfaces';
 
 //Context Interface
@@ -12,7 +12,14 @@ interface SharedInfoType {
     currentConversation: CurrentConversationItem[];
     setCurrentConversation: React.Dispatch<React.SetStateAction<CurrentConversationItem[]>>; 
     speakerTurn: string;
-    setSpeakerTurn: React.Dispatch<React.SetStateAction<string>>;     
+    setSpeakerTurn: React.Dispatch<React.SetStateAction<string>>;    
+    // inputRef: React.RefObject<HTMLTextAreaElement>;
+    // chatContainerRef: React.RefObject<HTMLDivElement>;
+
+    isSendBtnDisabled: boolean;
+    setIsSendBtnDisabled: React.Dispatch<React.SetStateAction<boolean>>;  
+
+
     
 }
 
@@ -28,7 +35,10 @@ export const sharedInfoContext = createContext<SharedInfoType>({
     setCurrentConversation: () => {},  // Add a function to update the current conversation array
     speakerTurn: '',
     setSpeakerTurn: () => {},   
-    
+    // inputRef: useRef<HTMLTextAreaElement | null>(null),
+    // chatContainerRef: useRef<HTMLDivElement  | null>(null),
+    isSendBtnDisabled: false,
+    setIsSendBtnDisabled: () => {},    
 });
 
 // Provider Interface
@@ -43,6 +53,12 @@ export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
     const [payload, setPayload] = useState<PostPayload>({ 'prompt': '', temperature: 0.7, topP: 0.9, topK: 50 })
     const [currentConversation, setCurrentConversation] = useState<CurrentConversationItem[]>([]);
     const [speakerTurn, setSpeakerTurn] = useState<string>('');
+    // const inputRef = useRef<HTMLTextAreaElement | null>(null)
+    const [isSendBtnDisabled, setIsSendBtnDisabled] = useState<boolean>(true);
+    // const chatContainerRef = useRef<HTMLDivElement | null>(null);
+
+
+
 
     return (
         <sharedInfoContext.Provider value={{ 
@@ -55,7 +71,11 @@ export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
             currentConversation, 
             setCurrentConversation,
             speakerTurn, 
-            setSpeakerTurn
+            setSpeakerTurn,
+            // inputRef,
+            isSendBtnDisabled,
+            setIsSendBtnDisabled,
+            // chatContainerRef
         }}>
             {children}
         </sharedInfoContext.Provider>

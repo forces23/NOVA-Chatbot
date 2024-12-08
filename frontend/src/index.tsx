@@ -6,9 +6,9 @@ import './styles/newLayoutStyles.scss';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { SharedInfoProvider } from './context/sharedContext';
+import { SharedInfoProvider } from '../src/utils/sharedContext';
 
-// Adjust viewport height on load and resize
+// Adjust viewport height and width on load and resize
 const setViewportHeightAndWidth = () => {
   const viewportHeight = window.innerHeight;
   const viewportWidth = window.innerWidth;

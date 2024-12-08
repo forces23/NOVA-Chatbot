@@ -2,17 +2,20 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import axios from 'axios';
 import '../../styles/loading_animation.css';
 // import planetsystem from '../../images/planet1.png';
-import { sharedInfoContext } from '../../context/sharedContext';
+import { sharedInfoContext } from '../../utils/sharedContext';
 import { ChatSessionProps } from '../../utils/chatbotInterfaces';
-import WaitingView from './waitingForQView';
+import WaitingForQView from './waitingForQView';
 import BotMessage from './bot_response/botMessage';
 
 
 
-function ChatSession({ chatContainerRef }: ChatSessionProps) {
+function ChatSession() {
     const { currentConversation, setCurrentConversation, speakerTurn, AIResponse, payload, isLoading, setIsLoading } = useContext(sharedInfoContext);
     const [showContextObj, setShowContextObj] = useState<{ [key: number]: boolean }>({});
     const [completedMessages, setCompletedMessages] = useState<number[]>([]);
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
+
+
 
     useEffect(() => {
         if (speakerTurn === 'user') {
@@ -28,12 +31,24 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
             const data_sources = AIResponse['source_documents'];
 
             // Add the AI's response to the current conversation
-            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]); 
+            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]);
         } else {
             console.log('waiting...');
             return;  // Return early if speakerTurn is neither 'user' nor 'bot'
         }
     }, [speakerTurn])
+
+    /*
+    * Scroll to bottom of current conversation history 
+    * this will make sure that the user sent message will cause the auto scroll
+    */
+    useEffect(() => {
+        const chatContainer = chatContainerRef.current;
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    }, [currentConversation]);
+
 
 
     async function fetchChatHistory() {
@@ -78,7 +93,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
 
     return (
         // <div className='container chat-window rounded mb-3 pt-3'>
-        <div> 
+        <div className='currentChatSession hello'>
             {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
                 <div key={index} className='rounded px-4 py-4 chat-bubbles mb-3'  >
                     <div className='d-flex flex-row'>
@@ -157,9 +172,7 @@ function ChatSession({ chatContainerRef }: ChatSessionProps) {
                     </div>
                 </div>
             ))) : (
-                <div className='d-flex justify-content-center'>
-                    <WaitingView />
-                </div>
+                <WaitingForQView />
             )}
 
             {isLoading ? (
