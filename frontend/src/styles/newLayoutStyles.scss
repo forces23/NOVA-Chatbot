@@ -1,0 +1,46 @@
+// Import Bootstrap's SCSS files
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background-color: black !important;
+}
+
+.masterDiv{
+    @extend .d-flex;
+    @extend .flex-column;
+    background-color: rgb(98, 253, 1);
+    height: 100vh;
+}
+
+header{
+    background-color: yellow;
+}
+
+main{
+    background-color: orange;
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .flex-grow-1;
+}
+
+section{
+    background-color: whitesmoke;
+    // @extend .flex-grow-1;
+}
+
+.convoLog{
+    background-color: teal;
+    @extend .flex-grow-1;
+    @extend .mb-auto;
+
+}
+
+.inputQuery{
+    background-color: fuchsia;
+
+}
+
+footer{
+    background-color: greenyellow;
+    
+}
