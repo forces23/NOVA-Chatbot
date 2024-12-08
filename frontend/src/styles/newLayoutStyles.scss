@@ -1,6 +1,11 @@
 // Import Bootstrap's SCSS files
 @import "~bootstrap/scss/bootstrap";
 
+// used to hide items from master
+.HIDE{
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -148,7 +153,7 @@ footer {
 /* ---- Title Bar Styles ---- */
 .titleBar {
     @extend .d-flex; 
-    @extend .justify-content-between; 
+    @extend .justify-content-center; 
     @extend .align-items-center; 
     @extend .p-1;
     background-color: #333333;
@@ -158,6 +163,8 @@ footer {
 }
 
 .chatbotName {
+    @extend .ms-auto;
+    @extend .me-auto;
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;

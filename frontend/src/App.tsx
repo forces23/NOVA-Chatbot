@@ -1,4 +1,3 @@
-import Chatbot from './components/chatbot';
 import TitleBar from './components/title_bar/titleBar';
 import SidePane from './components/side_pane/sidePane';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,17 +22,14 @@ function HomePage() {
         <TitleBar />
       </header>
       <main>
-        <nav className='sidebar'>
+        <nav className='sidebar HIDE'>
           <SidePane />
         </nav>
         <div className='companionArea'>
           <section className='convoLog'>
             {/* TODO: still need to work on the items within the chat section */}
             {/* convoLog */}
-            {/* <Chatbot/> */}
-            {/* <div ref={chatContainerRef} className="currentChatSession"> */}
             <CurrentChatSession />
-            {/* </div> */}
           </section>
           <section className='inputQuery'>
             {/* inputQuery */}
