@@ -1,47 +1,53 @@
 // Import Bootstrap's SCSS files
 @import "~bootstrap/scss/bootstrap";
 
-body{
+body {
     background-color: black !important;
-    height: 100vh !important;
+    margin: 0;
+    /* Remove default margins */
+    height: 100%;
+    /* Ensure body takes up full height */
 }
 
-.masterDiv{
+.masterDiv {
     @extend .d-flex;
     @extend .flex-column;
     background-color: rgb(98, 253, 1);
-    height: 100vh;
+    /* Fallback for desktop */
+    min-height: 100vh;
+    /* Use dynamic viewport height for modern mobile browsers */
+    height: 100dvh;
 }
 
-header{
+header {
     background-color: yellow;
 }
 
-main{
+main {
     background-color: orange;
     @extend .d-flex;
     @extend .flex-column;
     @extend .flex-grow-1;
 }
 
-section{
+section {
     background-color: whitesmoke;
     // @extend .flex-grow-1;
 }
 
-.convoLog{
+.convoLog {
     background-color: teal;
     @extend .flex-grow-1;
     @extend .mb-auto;
 
 }
 
-.inputQuery{
+.inputQuery {
     background-color: fuchsia;
 
 }
 
-footer{
+footer {
     background-color: greenyellow;
-    
+
 }
