@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 2px solid rgb(255, 0, 0); /* Temporarily visualize element boundaries */
 }
 
 html,
@@ -24,9 +25,10 @@ body {
     @extend .flex-column;
     background-color: rgb(98, 253, 1);
     /* Fallback for desktop */
-    min-height: 100vh;
+    // min-height: 100vh;
     /* Use dynamic viewport height for modern mobile browsers */
-    height: 100dvh;
+    // height: 100dvh;
+    height: var(--viewport-height);
 }
 
 header {
@@ -61,3 +63,4 @@ footer {
     background-color: greenyellow;
 
 }
+

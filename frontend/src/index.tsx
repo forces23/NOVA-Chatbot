@@ -8,6 +8,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { SharedInfoProvider } from './context/sharedContext';
 
+// Adjust viewport height on load and resize
+const setViewportHeight = () => {
+  const viewportHeight = window.innerHeight;
+  document.documentElement.style.setProperty('--viewport-height', `${viewportHeight}px`);
+}
+
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('load', setViewportHeight);
+
+// Call immediately in case the events miss the first render
+setViewportHeight();
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
