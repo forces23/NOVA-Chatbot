@@ -1,0 +1,66 @@
+{
+    "query": "what is medicaid?",
+    "result": "Medicaid (referred to as MO HealthNet in Missouri) is a federal-state partnership program that provides health coverage to eligible low-income individuals and families. Some key points about Medicaid from the given context:\n\n- Medicaid is called Title XIX (19) of the Social Security Act.\n- It is administered by states within federal guidelines, so the specific services and eligibility criteria can vary from state to state.\n- In Missouri, MO HealthNet is administered by the Department of Social Services (DSS), and claims are processed by a state-contracted fiscal agent.\n- Individuals can apply for MO HealthNet benefits through the Family Support Division (FSD) in Missouri.\n- The federal government provides a share of funding (Federal Financial Participation or FFP) to states for their Medicaid expenditures, with no set limit on the total federal payment.\n- The federal funding share for Medicaid varies, typically ranging from 60% to 90%, with the state covering the remaining portion from its own funds.\n- Medicaid covers certain medically necessary services for eligible children with disabilities, such as physical therapy, occupational therapy, speech therapy, and others, when included in their Individualized Education Plan (IEP) and provided by qualified Medicaid providers.\n\nIn summary, Medicaid is a joint federal-state program that provides health coverage to eligible low-income individuals, with states administering their specific programs according to federal guidelines and with partial federal funding support.",
+    "source_documents": [
+        Document(
+            metadata={
+                "location": {
+                    "s3Location": {
+                        "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Medicare Medicaid Claims Processing 10.24.2023_0.pdf"
+                    },
+                    "type": "S3"
+                },
+                "score": 0.44736102,
+                "source_metadata": {
+                    "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Medicare Medicaid Claims Processing 10.24.2023_0.pdf",
+                    "x-amz-bedrock-kb-chunk-id": "1%3A0%3AwE_-t5ABxXOKNus_AlbK",
+                    "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                }}, 
+            page_content="• Medicare is an insurance program designed and administered by the federal  government. Medicare is called Title XVIII (18) of the Social Security Act.  Medicare services and rules for payment are the same for all states in the United  States. Applications for this program can be made at local Social Security Offices,  which can also provide some details regarding services.    Medicare claims are processed by federally contracted private insurance organizations called carriers  and intermediaries located throughout the U.S.    • MO HealthNet is an assistance program that is a federal-state partnership. Some  services, as established by the federal government, are required to be provided.  Additional services may be provided at the option of individual states. MO  HealthNet (Medicaid) is also called Title XIX (19) of the Social Security Act. Each  state designs and operates its own program within federal guidelines; therefore,  programs vary among states. In Missouri, an individual may apply for MO  HealthNet benefits through the Family Support Division (FSD). Additional  information can be found on the FSD website. In Missouri, MHD, within the  Department of Social Services (DSS), is the single state agency for the  administration of the MO HealthNet Program. MO HealthNet claims are processed  by a state-contracted fiscal agent that operates according to the policies and  guidelines of MHD.     • A dual eligible participant is a participant that is eligible for both MO HealthNet  services (Medicaid) and Medicare services."), 
+        Document(
+            metadata={
+                "location": {
+                    "s3Location": {
+                        "uri": "s3://emaas-salesforce1/Manuals/providerManuals/School-Based-IEP-DS-Cost-Settlement.pdf"
+                    },
+                    "type": "S3"
+                },
+                "score": 0.4278199,
+                "source_metadata": {
+                    "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/School-Based-IEP-DS-Cost-Settlement.pdf",
+                    "x-amz-bedrock-kb-chunk-id": "1%3A0%3AS08RuJABxXOKNus_FHMF",
+                    "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                }}, 
+            page_content="Some children require related services    that may be medically necessary and reimbursable by Medicaid.         School-Based Individualized Education Plan (IEP) Direct Services Cost Settlement Manual – 9/1/2023    3    In 1988, Congress amended the Social Security Act to allow states and local education agencies to    access Medicaid federal funds to assist in their efforts to educate children with disabilities (the    Medicare Catastrophic Healthcare Act, Public Law 100-360).    The federal and the state governments share funding for the Medicaid program, and the amount of    total federal payment to states for Medicaid has no set limit. Federal Financial Participation (FFP),    which is the federal government’s share for states’ Medicaid program expenditures, is generally    claimed under administrative claiming or direct services claiming (“Fee-for-Service” (FFS).) The    information in this manual refers to direct services. In Missouri, the School District Administrative    Claiming (SDAC) program is operated as a separate program from the IEP Direct Services Program."), 
+        Document(
+            metadata={
+                "location": {
+                    "s3Location": {
+                        "uri": "s3://emaas-salesforce1/Manuals/providerManuals/School-Based-IEP-DS-Cost-Settlement.pdf"
+                    },
+                    "type": "S3"
+                },
+                "score": 0.42692465,
+                "source_metadata": {
+                    "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/School-Based-IEP-DS-Cost-Settlement.pdf",
+                    "x-amz-bedrock-kb-chunk-id": "1%3A0%3ATk8RuJABxXOKNus_FHMF",
+                    "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                }}, 
+            page_content="Only those medically necessary IDEA services    that are described in the federal definition of “medical assistance” can be covered as Medicaid    services when furnished by qualified participating Medicaid providers.    In Missouri, certain direct services are eligible for federal reimbursement to school districts if    provided by a qualified provider, address a medical or mental disability, assist the eligible student in    benefiting from special education programming and are included and provided in accordance with    the child’s IEP. The following are considered “direct medical services” and are governed by both    federal and state rules:      \uf0b7 Physical Therapy    \uf0b7 Occupational Therapy    \uf0b7 Speech Therapy    \uf0b7 Private Duty Nursing    \uf0b7 Behavioral Health    \uf0b7 Hearing Aid    \uf0b7 Personal Care Services    MO HealthNet covers direct medical services included in an IEP under the following conditions:      \uf0b7 The services are medically necessary and included in a Medicaid-covered category    (speech therapy, physical therapy, etc."), 
+        Document(
+            metadata={
+                "location": {
+                    "s3Location": {
+                        "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive Day Rehab Provider Manual 08 22 23.pdf"
+                    },
+                    "type": "S3"
+                },
+                "score": 0.42524418,
+                "source_metadata": {
+                    "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Comprehensive Day Rehab Provider Manual 08 22 23.pdf",
+                    "x-amz-bedrock-kb-chunk-id": "1%3A0%3AtdQBuJAB1fEzq9u622ag",
+                    "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                }}, 
+            page_content="The Division establishes a rate  of payment that meets the following goals:    • Ensures access to quality medical care for all participants by encouraging a  sufficient number of providers    • Allows for no adverse impact on private-pay patients  • Assures a reasonable rate to protect the interests of the taxpayers and  • Provides incentives that encourage efficiency on the part of medical providers    Funds used to reimburse providers for services rendered to eligible participants are received in part  from federal funds and supplemented by state funds to cover the costs. The amount of funding by  the federal government is based on a percentage of the allowable expenditures. The percentage  varies from program to program and in some cases different percentages for some services within  the same program may apply. Funding from the federal government may be as little as 60% or  as much as 90%; depending on the service and/or program. The balance of the allowable, (10- 40%) is paid from state General Revenue appropriated funds.         5     Comprehensive Day Rehab Provider Manual – 9/1/2023        Total expenditures for Medicaid must be within the appropriation limits established by the General  Assembly.")
+    ]
+}

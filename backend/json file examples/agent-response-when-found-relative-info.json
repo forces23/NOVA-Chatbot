@@ -1,0 +1,84 @@
+{
+    "chunk": {
+        "attribution": {
+            "citations": [
+                {
+                    "generatedResponsePart": {
+                        "textResponsePart": {
+                            "span": {
+                                "end": 391,
+                                "start": 0
+                            },
+                            "text": "A dental claim is a form or electronic submission used to request payment from an insurance company or third-party payer for dental services provided to a patient. The most commonly used dental claim form is the American Dental Association (ADA) Dental Claim Form, which contains fields for entering information about the patient, the dental provider, the services performed, and the charges."
+                        }
+                    },
+                    "retrievedReferences": [
+                        {
+                            "content": {
+                                "text": "For  convenience, some of the input fields are set as indicators or accepted values in drop-down boxes.     http://manuals.momed.com/forms/Handicapping_Labio-Lingual_Deviation(HLD)_Index.pdf  https://wpc-edi.com/  http://manuals.momed.com/edb_pdf/5010%20Companion%20Guide.pdf  http://manuals.momed.com/edb_pdf/D.0%20Companion%20Guide.pdf  http://manuals.momed.com/edb_pdf/D.0%20Companion%20Guide.pdf  http://www.emomed.com/  https://manuals.momed.com/Application.html  https://manuals.momed.com/Application.html      Dental Manual – 9/01/2023        57      Providers have the option to input and submit claims individually or in a batch submission. A  confirmation file is returned for each transmission. 4.3 Dental Claim Form  The 2019 American Dental Association (ADA) Dental Claim Form is used to bill MHD for  dental services unless a provider bills those services electronically."
+                            },
+                            "location": {
+                                "s3Location": {
+                                    "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf"
+                                },
+                                "type": "S3"
+                            },
+                            "metadata": {
+                                "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf",
+                                "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ap08IuJABxXOKNus_0mIB",
+                                "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "generatedResponsePart": {
+                        "textResponsePart": {
+                            "span": {
+                                "end": 816,
+                                "start": 393
+                            },
+                            "text": "The dental claim form allows dental providers to submit claims for reimbursement from insurance companies or government programs like Medicaid. It includes fields for details such as the patient's personal and insurance information, a description of the dental procedures performed, tooth numbers and surfaces treated, dates of service, fees charged, and any information about accidents or injuries related to the treatment."
+                        }
+                    },
+                    "retrievedReferences": [
+                        {
+                            "content": {
+                                "text": "If claim does not involve a prosthetic restoration,  check 'no' and proceed to #45.  b. If claim is for the initial placement of a crown or fixed  or removable prosthesis, check 'no' and go to #45.  c. The patient has previously had these teeth replaced  by a crown, check 'yes' and go to #44.    44. Date of Prior Placement Enter the date of the initial placement of the prosthesis if  the answer to #43 is yes, otherwise leave blank.    45. Treatment Resulting From If the dental treatment listed on the claim was provided  as a result of an accident or injury, check the  appropriate box and proceed to items #46 & 47. If  services are not the result of an accident, skip to field  #48. The valid values are:  AA — Auto Accident  EM — Employment Related  OA — Other Accident    46. Accident Date Enter the date on which the accident in #45 occurred,  otherwise leave blank.         Dental Manual – 9/01/2023        61      Field Number & Name Instructions for Completion  47. Auto Accident State  Enter the state in which the auto accident in #45    occurred, otherwise leave blank.    48. Name, Address, City, State Enter the name and complete address of dentist or  dental entity.    49."
+                            },
+                            "location": {
+                                "s3Location": {
+                                    "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf"
+                                },
+                                "type": "S3"
+                            },
+                            "metadata": {
+                                "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf",
+                                "x-amz-bedrock-kb-chunk-id": "1%3A0%3Ar08IuJABxXOKNus_0mIB",
+                                "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                            }
+                        },
+                        {
+                            "content": {
+                                "text": "Tooth Surface Enter the appropriate surface code, if applicable,  otherwise leave blank. The valid values are:  M — Mesial  D — Distal  O — Occlusal  L — Lingual  I — Incisal  F — Facial  B — Buccal    *29. Procedure Code Enter the five (5)-digit code for the service performed,  as well as any applicable modifiers.    29a-29b.   Not required.    30. Description Only required in specific situations as described in  Section 2.    *31. Fee Enter the usual and customary fee for the procedures(s)  performed. Do not subtract the copay or coinsurance  amounts from the charge.    31a. Other fees When other charges are applicable to dental services  provided, this field must be reported. Enter the amount  here.    *32. Total Fee Enter the total of the charges shown.    33. Missing Teeth Not required.    34. Diagnosis Code Not required.         Dental Manual – 9/01/2023        60      Field Number & Name Instructions for Completion  **35. Remarks For timely filing purposes, if this is a resubmitted claim,    enter the Internal Control Number (ICN) of the previous  related claim or attach a copy of the original Remittance  Advice indicating the claim was initially submitted timely.    36-38."
+                            },
+                            "location": {
+                                "s3Location": {
+                                    "uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf"
+                                },
+                                "type": "S3"
+                            },
+                            "metadata": {
+                                "x-amz-bedrock-kb-source-uri": "s3://emaas-salesforce1/Manuals/providerManuals/Dental Manual 08 09 23.pdf",
+                                "x-amz-bedrock-kb-chunk-id": "1%3A0%3ArU8IuJABxXOKNus_0mIB",
+                                "x-amz-bedrock-kb-data-source-id": "ZCUOL7Z4JR"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "bytes": "b'A dental claim is a form or electronic submission used to request payment from an insurance company or third-party payer for dental services provided to a patient. The most commonly used dental claim form is the American Dental Association (ADA) Dental Claim Form, which contains fields for entering information about the patient, the dental provider, the services performed, and the charges. The dental claim form allows dental providers to submit claims for reimbursement from insurance companies or government programs like Medicaid. It includes fields for details such as the patient's personal and insurance information, a description of the dental procedures performed, tooth numbers and surfaces treated, dates of service, fees charged, and any information about accidents or injuries related to the treatment.'"
+    }
+}
+
