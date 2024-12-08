@@ -17,16 +17,17 @@ function TitleBar() {
     return (
         <div className='titleBar'>
             <i
-                className='bi bi-rocket-takeoff-fill fs-3 me-2'
+                className='bi bi-rocket-takeoff-fill fs-3'
                 // onClick={goToGame} // TODO: Not ready for master branch
             ></i>
             {/* Neurological Operative Virtual Assistant */}
             <h4 className='chatbotName'>NOVA</h4>
             <div>
                 {/* Filler div to create empty space to the right of title */}
-                <label className="switch">
+                <div className="ms-4"></div>
+                <label className="switch HIDE">
                     <input type="checkbox" id="viewSel" onClick={() => { }} />
-                    <span className="slider round HIDE"></span>
+                    <span className="slider round"></span>
                 </label>
             </div>
         </div>
