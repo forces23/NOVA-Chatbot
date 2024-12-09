@@ -129,7 +129,7 @@ const QueryInput:React.FC = () => {
                     disabled={isLoading}
                 />
                 <VoiceToText onTextChange={handleTextChange} />
-                <div className='d-flex align-items-end'>
+                <div className='d-flex align-items-center'>
                     <button
                         className="btn btn-primary me-2 border border-0 rounded-pill my-1"
                         onClick={handleSendBtn}
