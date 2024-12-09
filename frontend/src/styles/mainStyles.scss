@@ -15,13 +15,13 @@ html {
     height: 100vh;
 }
 
-.main-content {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-    margin-top: 50px;
-    /* Adjust this value to match the height of your title bar */
-}
+// .main-content {
+//     display: flex;
+//     flex: 1;
+//     overflow: hidden;
+//     margin-top: 50px;
+//     /* Adjust this value to match the height of your title bar */
+// }
 
 code {
     white-space: pre-wrap !important;
@@ -92,10 +92,10 @@ code {
 
 // }
 
-.userChatHistory {
-    /* color: #87cfff; */
-    color: white;
-}
+// .userChatHistory {
+//     /* color: #87cfff; */
+//     color: white;
+// }
 
 .userMessage {
     font-family: inherit;

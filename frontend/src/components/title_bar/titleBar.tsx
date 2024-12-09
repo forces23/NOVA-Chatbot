@@ -18,7 +18,8 @@ function TitleBar() {
         <div className='titleBar'>
             <i
                 className='bi bi-rocket-takeoff-fill fs-3'
-                // onClick={goToGame} // TODO: Not ready for master branch
+                // TODO: Not ready for master branch
+                // onClick={goToGame} 
             ></i>
             {/* Neurological Operative Virtual Assistant */}
             <h4 className='chatbotName'>NOVA</h4>

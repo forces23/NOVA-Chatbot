@@ -15,8 +15,6 @@ function ChatSession() {
     const [completedMessages, setCompletedMessages] = useState<number[]>([]);
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
-
-
     useEffect(() => {
         if (speakerTurn === 'user') {
             setCurrentConversation([...currentConversation, { role: 'user', content: [{ text: payload.prompt, type: 'text' }] }]); // Add the user's input to the current conversation
@@ -50,7 +48,7 @@ function ChatSession() {
     }, [currentConversation]);
 
 
-
+    // NOT USED 
     async function fetchChatHistory() {
         const response = await axios.get('http://localhost:5000/chat-history')
         console.log('current conversation');
@@ -84,7 +82,7 @@ function ChatSession() {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
             console.log(text);
-            // Optionally, you can show a temporary message to the user indicating the text was copied
+            // TODO:: show a temporary message to the user indicating the text was copied
         }).catch(err => {
             console.error('Failed to copy text: ', err);
         });
@@ -93,9 +91,9 @@ function ChatSession() {
 
     return (
         // <div className='container chat-window rounded mb-3 pt-3'>
-        <div className='currentChatSession hello'>
+        <div className='currentChatSession'>
             {currentConversation.length > 0 ? (currentConversation.map((message: any, index: number) => (
-                <div key={index} className='rounded px-4 py-4 chat-bubbles mb-3'  >
+                <div key={index} className={`rounded px-4 chat-bubbles mb-3 ${index === 0 ? 'pt-4' : 'pt-1'}`} >
                     <div className='d-flex flex-row'>
                         <div>
                             {message.role === 'user' ? (

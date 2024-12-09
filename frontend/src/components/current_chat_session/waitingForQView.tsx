@@ -1,5 +1,5 @@
 import '../../styles/dot_animation.css';
-import GradientDotsAnimation from '../animation_views/gradientDotsAnimation';
+import GradientDotsAnimation from '../animations/gradientDotsAnimation';
 
 function WaitingForQView() {
     return (
