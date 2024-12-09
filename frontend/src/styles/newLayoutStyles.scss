@@ -20,6 +20,8 @@ body {
     width: 100%;
     // Prevent page-level scrolling
     overflow: hidden;
+
+    
 }
 
 body {
@@ -140,12 +142,16 @@ footer {
     background-color: #333333;
 }
 
+textarea{
+    max-height: 300px;
+}
+
 .input-area textarea {
     flex: 1;
     margin-right: 10px;
     box-shadow: none !important;
     min-height: 38px;
-    max-height: 150px;
+    // max-height: 300px;
     resize: none;
     overflow-y: auto;
 }

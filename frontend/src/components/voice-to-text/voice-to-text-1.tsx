@@ -37,12 +37,13 @@ function VoiceToText({ onTextChange }: VoiceToTextProps) {
     }
 
     return (
-        <div className='d-flex align-items-center'>
+        <div className='d-flex align-items-end'>
             <button 
                 className={`voice-to-text btn me-1 border border-0 rounded-pill my-1 ${listening ? 'btn-danger' : 'btn-primary'}`} 
                 onClick={handleMicButton}
             >
-                <i className='bi bi-mic p-2'></i>
+                <div className='d-flex justify-content-center'><i className='bi bi-mic p-0 fs-4'></i></div>
+                
             </button>
         </div>
     );

@@ -100,7 +100,7 @@ const QueryInput:React.FC = () => {
     function adjustTextareaHeight() {
         if (inputRef.current) {
             inputRef.current.style.height = 'auto';
-            inputRef.current.style.height = `${Math.min(inputRef.current.scrollHeight, 150)}px`;
+            inputRef.current.style.height = `${Math.min(inputRef.current.scrollHeight, 300)}px`;
         }
     };
 
@@ -129,13 +129,13 @@ const QueryInput:React.FC = () => {
                     disabled={isLoading}
                 />
                 <VoiceToText onTextChange={handleTextChange} />
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-end'>
                     <button
                         className="btn btn-primary me-2 border border-0 rounded-pill my-1"
                         onClick={handleSendBtn}
                         disabled={isSendBtnDisabled}
                     >
-                        <i className='bi bi-arrow-right p-2'></i>
+                       <span className='d-flex justify-content-center'> <i className='bi bi-arrow-right p-0 fs-4'></i></span>
                     </button>
                 </div>
             </div>
