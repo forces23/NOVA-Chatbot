@@ -79,7 +79,8 @@ section {
     @extend .flex-grow-1;
     // @extend .mb-auto;
     overflow-y: auto !important; // Allow scrolling
-    max-height: calc(var(--viewport-height) - 200px); /* Adjust to available space */
+    max-height: calc(var(--viewport-height) - 146px);
+    // max-height: var(--viewport-height);
 
 
 }
