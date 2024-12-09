@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import { sharedInfoContext } from "../../utils/sharedContext";
 import VoiceToText from "../voice-to-text/voice-to-text-1";
 
-const QueryInput:React.FC = () => {
+const QueryInput: React.FC = () => {
     const { payload, setPayload, setIsLoading, isLoading, SetAIResponse, setSpeakerTurn, isSendBtnDisabled, setIsSendBtnDisabled } = useContext(sharedInfoContext);
     const inputRef = useRef<HTMLTextAreaElement>(null)
 
@@ -63,13 +63,15 @@ const QueryInput:React.FC = () => {
                 }
             );
 
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
             const jsonResponse = await response.json();
-            console.log(jsonResponse)
 
             // const data = response.data;
             const data = jsonResponse; // You can also read the `ReadableStream` chunk by chunk using a reader and a loop.
 
-            console.log(data);
             SetAIResponse(data); // Update the AIResponse state with the response from Bedrock
 
             setSpeakerTurn('bot');
@@ -86,7 +88,6 @@ const QueryInput:React.FC = () => {
 
     function handleSendBtn() {
         setSpeakerTurn('user');
-        console.log(payload);
         invokeBedrock();
         // invokeBedrockAgent();
         // queryBedrockKBLangchain();
@@ -135,7 +136,7 @@ const QueryInput:React.FC = () => {
                         onClick={handleSendBtn}
                         disabled={isSendBtnDisabled}
                     >
-                       <span className='d-flex justify-content-center'> <i className='bi bi-arrow-right p-0 fs-5'></i></span>
+                        <span className='d-flex justify-content-center'> <i className='bi bi-arrow-right p-0 fs-5'></i></span>
                     </button>
                 </div>
             </div>

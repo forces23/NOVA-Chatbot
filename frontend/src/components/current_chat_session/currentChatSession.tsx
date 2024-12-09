@@ -19,8 +19,8 @@ function ChatSession() {
         if (speakerTurn === 'user') {
             setCurrentConversation([...currentConversation, { role: 'user', content: [{ text: payload.prompt, type: 'text' }] }]); // Add the user's input to the current conversation
         } else if (speakerTurn === 'bot') {
-            console.log('AI RESPONSE');
-            console.log(AIResponse);
+            // console.log('AI RESPONSE');
+            // console.log(AIResponse);
             // fetchChatHistory();
 
             const aiResp = AIResponse['query_result'];
@@ -31,7 +31,7 @@ function ChatSession() {
             // Add the AI's response to the current conversation
             setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]);
         } else {
-            console.log('waiting...');
+            // console.log('waiting...');
             return;  // Return early if speakerTurn is neither 'user' nor 'bot'
         }
     }, [speakerTurn])
@@ -81,7 +81,6 @@ function ChatSession() {
     const copyToClipboard = (text: any) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
-            console.log(text);
             // TODO:: show a temporary message to the user indicating the text was copied
         }).catch(err => {
             console.error('Failed to copy text: ', err);
