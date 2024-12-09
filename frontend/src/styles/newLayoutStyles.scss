@@ -37,6 +37,7 @@ body {
     height: var(--viewport-height);
     // Fill the full height of the page
     // height: 100vh; 
+
 }
 
 header {
@@ -65,6 +66,8 @@ nav{
     @extend .d-flex;
     @extend .flex-column;
     @extend .flex-grow-1;
+    height: calc(var(--viewport-height) - 74px);;
+
     
 }
 
@@ -81,8 +84,8 @@ section {
     @extend .flex-column;
     @extend .flex-grow-1;
     // @extend .mb-auto;
-    overflow-y: auto !important; // Allow scrolling
-    max-height: calc(var(--viewport-height) - 146px);
+    overflow-y: auto; // Allow scrolling
+    // max-height: calc(var(--viewport-height) - 74px);
     // max-height: var(--viewport-height);
 
 

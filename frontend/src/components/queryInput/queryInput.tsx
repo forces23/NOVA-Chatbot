@@ -135,7 +135,7 @@ const QueryInput:React.FC = () => {
                         onClick={handleSendBtn}
                         disabled={isSendBtnDisabled}
                     >
-                       <span className='d-flex justify-content-center'> <i className='bi bi-arrow-right p-0 fs-4'></i></span>
+                       <span className='d-flex justify-content-center'> <i className='bi bi-arrow-right p-0 fs-5'></i></span>
                     </button>
                 </div>
             </div>

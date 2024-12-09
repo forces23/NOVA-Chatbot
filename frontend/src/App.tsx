@@ -29,7 +29,7 @@ function HomePage() {
           <section className='convoLog'>
             {/* TODO: still need to work on the items within the chat section */}
             {/* convoLog */}
-            {/* <CurrentChatSession /> */}
+            <CurrentChatSession />
           </section>
           <section className='inputQuery'>
             {/* inputQuery */}
