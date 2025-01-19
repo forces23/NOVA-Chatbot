@@ -3,8 +3,8 @@ import { CurrentConversationItem, PostPayload, SettingsType } from '../utils/cha
 
 //Context Interface
 interface SharedInfoType {
-    AIResponse: any;
-    SetAIResponse: React.Dispatch<React.SetStateAction<{}>>;
+    AIResponse: { query_result: string; html_result: string; };
+    SetAIResponse: React.Dispatch<React.SetStateAction<{ query_result: string; html_result: string; source_documents?: [];}>>;
     isLoading: boolean;
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
     payload: PostPayload;
@@ -25,7 +25,10 @@ interface SharedInfoType {
 
 // Create the shared info context, this is what is used to access the actual data across all the components
 export const sharedInfoContext = createContext<SharedInfoType>({
-    AIResponse: {} ,
+    AIResponse: {
+        query_result: '',
+        html_result: ''
+    } ,
     SetAIResponse: () => {}, 
     isLoading: false,
     setIsLoading: () => {}, 
@@ -48,7 +51,7 @@ interface SharedInfoProviderProps {
 
 // This is what is wrapped around the whole project that allows the components to use all of this variables 
 export const SharedInfoProvider = ({ children }: SharedInfoProviderProps) => {
-    const [AIResponse, SetAIResponse] = useState<{}>();
+    const [AIResponse, SetAIResponse] = useState<{ query_result: string; html_result: string; source_documents?: []}>({ query_result: '', html_result: '' });
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [payload, setPayload] = useState<PostPayload>({ 'prompt': '', temperature: 0.7, topP: 0.9, topK: 50 })
     const [currentConversation, setCurrentConversation] = useState<CurrentConversationItem[]>([]);

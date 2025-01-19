@@ -4,8 +4,13 @@ import VoiceToText from "../voice-to-text/voice-to-text-1";
 
 
 const QueryInput: React.FC = () => {
-    const { payload, setPayload, setIsLoading, isLoading, SetAIResponse, setSpeakerTurn, isSendBtnDisabled, setIsSendBtnDisabled } = useContext(sharedInfoContext);
+    const { payload, setPayload, setIsLoading, isLoading, SetAIResponse, AIResponse, setSpeakerTurn, isSendBtnDisabled, setIsSendBtnDisabled } = useContext(sharedInfoContext);
     const inputRef = useRef<HTMLTextAreaElement>(null)
+
+    useEffect(() => {
+        console.log(AIResponse);
+        console.log(payload);
+    }, [AIResponse, payload])
 
     /*
     * Allows user to press the enter key to submit the query and 
@@ -87,11 +92,11 @@ const QueryInput: React.FC = () => {
 
     }
 
-    async function invokeBedrockCHUNKS() {
+    async function invokeBedrockStream() {
         setIsLoading(true);
         try {
             console.log("Starting request...");  // Debug log
-            const baseUrl = new URL('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI');
+            const baseUrl = new URL('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/dev/invoke-Bedrock-GenAI-stream');
 
             const response = await fetch(baseUrl, {
                 method: 'POST',
@@ -107,14 +112,17 @@ const QueryInput: React.FC = () => {
             }
 
             const reader = response.body?.getReader();
-            const decoder = new TextDecoder();
+            if (!reader) {
+                throw new Error('Failed to get response reader');
+            }
 
+            const decoder = new TextDecoder();
+            let buffer = ''; // Buffer for incomplete chunks
             let fullResponse = '';
 
             while (true) {
-                if (!reader) break;
-
                 const { value, done } = await reader.read();
+                console.log('value: ', value);
 
                 if (done) {
                     console.log("Stream complete");  // Debug log
@@ -122,23 +130,67 @@ const QueryInput: React.FC = () => {
                 }
 
                 // decode the chunk and parse it 
-                const chunk = decoder.decode(value);
-                console.log("Received chunk:", chunk);  // Debug log
-                
+                buffer += decoder.decode(value, { stream: true });
+
+                // Process complete messages from buffer
+                const messages = buffer.split('\n\n');
+                buffer = messages.pop() || '';
+
+                // Process each complete message
+                for (const message of messages) {
+                    if (!message.trim()) continue;
+
+                    console.log("Processing message:", message); // Debug log
+
+                    if (message.startsWith('data: ')) {
+                        try {
+                            const jsonStr = message.replace(/^data:\s*/, '');
+                            const jsonChunk = JSON.parse(jsonStr);
+                            console.log("Parsed JSON:", jsonChunk); // Debug log
+
+                            if (jsonChunk.error) {
+                                console.error('Error from server:', jsonChunk.error);
+                                continue;
+                            }
+
+                            if (jsonChunk.content?.[0]?.text) {
+                                const newText = jsonChunk.content[0].text;
+                                console.log("New text:", newText); // Debug log
+
+                                fullResponse += newText;
+                                SetAIResponse(prevResponse => {
+                                    const updated = {
+                                        ...prevResponse,
+                                        query_result: fullResponse,
+                                        html_result: fullResponse
+                                    };
+                                    console.log("Updating AI Response:", updated); // Debug log
+                                    return updated;
+                                });
+                            }
+                        } catch (e) {
+                            console.error('Error parsing message:', e, 'Message:', message);
+                        }
+                    }
+                }
+            }
+
+            // Final cleanup of any remaining buffer
+            if (buffer.trim()) {
                 try {
-                    // Remove the "data: " prefix and parse the JSON
-                    const jsonChunk = JSON.parse(chunk.replace(/^data: /, ''));
-
-                    fullResponse += jsonChunk.content[0].text;
-
-                    SetAIResponse(prevResponse => ({
-                        ...prevResponse,
-                        queery_result: fullResponse,
-                        html_result: fullResponse
-                    }));
-
+                    if (buffer.startsWith('data: ')) {
+                        const jsonChunk = JSON.parse(buffer.replace('data: ', ''));
+                        if (jsonChunk.content?.[0]?.text) {
+                            fullResponse += jsonChunk.content[0].text;
+                            SetAIResponse(prevResponse => ({
+                                ...prevResponse,
+                                queery_result: fullResponse,
+                                html_result: fullResponse
+                            }));
+                        }
+                    }
                 } catch (e) {
-                    console.log('Error parsing chunk: ', e);
+                    console.error('Error parsing final buffer:', e);
                 }
             }
 
@@ -159,7 +211,7 @@ const QueryInput: React.FC = () => {
     function handleSendBtn() {
         setSpeakerTurn('user');
         // invokeBedrock();
-        invokeBedrockCHUNKS(); // TODO: 
+        invokeBedrockStream(); // TODO: 
         // invokeBedrockAgent();
         // queryBedrockKBLangchain();
 

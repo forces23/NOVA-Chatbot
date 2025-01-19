@@ -26,10 +26,12 @@ function ChatSession() {
             const aiResp = AIResponse['query_result'];
             const htmlAiResp = AIResponse['html_result'];
             const aiRespType = 'text';
-            const data_sources = AIResponse['source_documents'];
+            // const data_sources = AIResponse['source_documents'] || '';
 
             // Add the AI's response to the current conversation
-            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]);
+            // setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]);
+            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }] }]);
+
         } else {
             // console.log('waiting...');
             return;  // Return early if speakerTurn is neither 'user' nor 'bot'
@@ -66,10 +68,12 @@ function ChatSession() {
             const aiResp = response.data.chat_history[lastChatEntry]['content'][0]['chunk']['bytes']
             const htmlAiResp = response.data.chat_history[lastChatEntry]['content'][0]['html_result']
             const aiRespType = 'text';
-            const data_sources = response.data.chat_history[lastChatEntry]['content'][0]['source_documents']
+            // const data_sources = response.data.chat_history[lastChatEntry]['content'][0]['source_documents']
 
 
-            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]); // Add the AI's response to the current conversation
+            // setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }], data_sources: data_sources }]); // Add the AI's response to the current conversation
+            setCurrentConversation([...currentConversation, { role: 'bot', content: [{ html_text: htmlAiResp, text: aiResp, type: aiRespType }] }]); // Add the AI's response to the current conversation
+
 
         } else {
             console.log('No current conversation history available');
@@ -146,8 +150,8 @@ function ChatSession() {
                             </div>
                         </div>
                     </div>
-                    <div className='context'>
-                        {/* BOT -- shows the sources when using the bedrock agent */}
+                    {/* <div className='context'>
+                        {/* BOT -- shows the sources when using the bedrock agent 
                         {message.data_sources != null && message.role === 'bot' ? (
                             <>
                                 <p><button className='' onClick={() => { setShowContextObj((prev) => ({ ...prev, [index]: !prev[index] })); }}><em>Context</em> {showContextObj[index] ? (<i className='bi bi-caret-up-fill'></i>) : (<i className='bi bi-caret-down-fill'></i>)}</button> </p>
@@ -166,7 +170,7 @@ function ChatSession() {
                         ) : (
                             <p></p>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             ))) : (
                 <WaitingForQView />

@@ -7,7 +7,7 @@ import aws_initialization
 import constants
 from ai_api_calls.bedrockAgent import query_knowledge_base
 from ai_api_calls.bedrockKBLangchain import query_bedrock_kb_langchain
-from ai_api_calls.bedrockGeneral import invoke_bedrock
+from ai_api_calls.bedrockGeneral import invoke_bedrock, invoke_bedrock_stream
 
 app = Flask(__name__)
 CORS(app, resources=cors_policy)
@@ -25,19 +25,53 @@ def get_chat_history():
     print('********************************Chat History API Call********************************')
     return jsonify({'chat_history': chat_history})
 
-## API call to use Genral Knowledge Bedrock <can ask it anything>
-# @app.route('/invoke-Bedrock-GenAI', methods=['POST'])
-# def invoke_bedrock_GenAI():
-#     data = request.json
-
-#     # Call the imported function
-#     result = invoke_bedrock(request)
-
-#     # Return the result
-#     return result
-
+# API call to use Genral Knowledge Bedrock <can ask it anything>
 @app.route('/invoke-Bedrock-GenAI', methods=['POST'])
 def invoke_bedrock_GenAI():
+    data = request.json
+
+    # Call the imported function
+    result = invoke_bedrock(request)
+
+    # Return the result
+    return result
+
+# @app.route('/invoke-Bedrock-GenAI', methods=['POST'])
+# def invoke_bedrock_GenAI():
+#     def generate():
+#         try:
+#             print('Starting to generate response...')
+#             # Call the imported function
+#             # result = invoke_bedrock(request)
+#             # Yield the response chunk by chunk
+#             # yield f"data: {json.dumps(result)}\n\n"
+            
+#             for chunk in invoke_bedrock(request):
+#                 print(f"Sending chunk: {chunk}")  # Debug log
+#                 yield f"data: {json.dumps(chunk)}\n\n"
+            
+#         except Exception as e: 
+#             print(f"Error in generate: {str(e)}")  # Debug log
+#             error_response = {
+#                 'error': str(e),
+#                 'status': 'error'
+#             }
+#             yield f"data: {json.dumps(error_response)}\n\n"
+
+#     # Return the result
+#     return Response(
+#         generate(),
+#         mimetype='text/event-stream',
+#         headers={
+#             'Cache-Control': 'no-cache',
+#             'Connection': 'keep-alive',
+#             'X-Accel-Buffering': 'no',
+#             'Access-Control-Allow-Origin': '*'
+#         }
+#     )
+    
+@app.route('/invoke-Bedrock-GenAI-stream', methods=['POST'])
+def invoke_bedrock_GenAI_stream():
     def generate():
         try:
             print('Starting to generate response...')
@@ -46,7 +80,7 @@ def invoke_bedrock_GenAI():
             # Yield the response chunk by chunk
             # yield f"data: {json.dumps(result)}\n\n"
             
-            for chunk in invoke_bedrock(request):
+            for chunk in invoke_bedrock_stream(request):
                 print(f"Sending chunk: {chunk}")  # Debug log
                 yield f"data: {json.dumps(chunk)}\n\n"
             
@@ -57,7 +91,7 @@ def invoke_bedrock_GenAI():
                 'status': 'error'
             }
             yield f"data: {json.dumps(error_response)}\n\n"
-
+          
     # Return the result
     return Response(
         generate(),
