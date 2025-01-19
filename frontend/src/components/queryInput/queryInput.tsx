@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import { sharedInfoContext } from "../../utils/sharedContext";
 import VoiceToText from "../voice-to-text/voice-to-text-1";
 
+
 const QueryInput: React.FC = () => {
     const { payload, setPayload, setIsLoading, isLoading, SetAIResponse, setSpeakerTurn, isSendBtnDisabled, setIsSendBtnDisabled } = useContext(sharedInfoContext);
     const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -48,7 +49,7 @@ const QueryInput: React.FC = () => {
         }
     }, [payload, isLoading]);
 
-    // USED FOR AWS BACKEND SERVICE CALLS    
+    // USED FOR AWS BACKEND SERVICE AND LOCAL BACKEND SERVICE CALLS    
     async function invokeBedrock() {
         setIsLoading(true);
         try {
@@ -66,7 +67,7 @@ const QueryInput: React.FC = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            
+
             const jsonResponse = await response.json();
 
             // const data = response.data;
@@ -86,9 +87,79 @@ const QueryInput: React.FC = () => {
 
     }
 
+    async function invokeBedrockCHUNKS() {
+        setIsLoading(true);
+        try {
+            console.log("Starting request...");  // Debug log
+            const baseUrl = new URL('https://8fdngj09ah.execute-api.us-east-1.amazonaws.com/Prod/invoke-Bedrock-GenAI');
+
+            const response = await fetch(baseUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'text/event-stream'
+                },
+                body: JSON.stringify(payload)
+            })
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const reader = response.body?.getReader();
+            const decoder = new TextDecoder();
+
+            let fullResponse = '';
+
+            while (true) {
+                if (!reader) break;
+
+                const { value, done } = await reader.read();
+
+                if (done) {
+                    console.log("Stream complete");  // Debug log
+                    break;
+                }
+
+                // decode the chunk and parse it 
+                const chunk = decoder.decode(value);
+                console.log("Received chunk:", chunk);  // Debug log
+                
+                try {
+                    // Remove the "data: " prefix and parse the JSON
+                    const jsonChunk = JSON.parse(chunk.replace(/^data: /, ''));
+
+                    fullResponse += jsonChunk.content[0].text;
+
+                    SetAIResponse(prevResponse => ({
+                        ...prevResponse,
+                        queery_result: fullResponse,
+                        html_result: fullResponse
+                    }));
+
+                } catch (e) {
+                    console.log('Error parsing chunk: ', e);
+                }
+            }
+
+            setSpeakerTurn('bot');
+            setPayload(prevPayload => ({
+                ...prevPayload,
+                prompt: ''
+            }));
+        } catch (e) {
+            console.error('Error fetching data:', e);
+        } finally {
+            setIsLoading(false);
+        }
+
+
+    }
+
     function handleSendBtn() {
         setSpeakerTurn('user');
-        invokeBedrock();
+        // invokeBedrock();
+        invokeBedrockCHUNKS(); // TODO: 
         // invokeBedrockAgent();
         // queryBedrockKBLangchain();
 

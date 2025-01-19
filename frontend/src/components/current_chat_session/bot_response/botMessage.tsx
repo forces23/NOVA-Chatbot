@@ -2,9 +2,11 @@ import Prism from 'prismjs';
 import '../../../utils/prism-language-imports';
 import { useState, useEffect, useRef } from 'react';
 import { BotMessageInterface } from '../../../utils/chatbotInterfaces';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 
-function useTypewriterHTML(html:string, charactersPerSecond:number = 80, chatContainerRef:React.RefObject<HTMLDivElement | null>) {
+function useTypewriterHTML(html: string, charactersPerSecond: number = 80, chatContainerRef: React.RefObject<HTMLDivElement | null>) {
     const [displayedHTML, setDisplayedHTML] = useState('');
 
     useEffect(() => {
@@ -23,7 +25,7 @@ function useTypewriterHTML(html:string, charactersPerSecond:number = 80, chatCon
                 setDisplayedHTML(currentHTML);
                 i++;
 
-                setTimeout(() =>{
+                setTimeout(() => {
                     updateHTML();
                     Prism.highlightAll();
                     if (chatContainerRef.current) {
@@ -44,7 +46,7 @@ function useTypewriterHTML(html:string, charactersPerSecond:number = 80, chatCon
 };
 
 
-function BotMessage({ message, index, completedMessages, setCompletedMessages, chatContainerRef }:BotMessageInterface) {
+function BotMessage({ message, index, completedMessages, setCompletedMessages, chatContainerRef }: BotMessageInterface) {
     const displayedHTML = useTypewriterHTML(message.content[0].html_text || '<p>No message bot response...</p>', 80, chatContainerRef);
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,14 +54,23 @@ function BotMessage({ message, index, completedMessages, setCompletedMessages, c
         if (displayedHTML === (message.content[0].html_text || '<p>No message bot response...</p>')) {
             setCompletedMessages((prev) => [...prev, index]);
         }
-         // Apply Prism highlighting after each update
-         if (containerRef.current) {
+        // Apply Prism highlighting after each update
+        if (containerRef.current) {
             Prism.highlightAllUnder(containerRef.current);
         }
     }, [displayedHTML, message.content[0].html_text, index, setCompletedMessages]);
 
     if (completedMessages.includes(index)) {
-        return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: message.content[0].html_text || '<p>Bot response missing...</p>' }} />;
+        // return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: message.content[0].html_text || '<p>Bot response missing...</p>' }} /> ;
+        return (
+            <div ref={containerRef}>
+                <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}  // Optional
+                children={message.content[0].html_text}
+            />
+            </div>
+        );
+
     }
 
     return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: displayedHTML }} />;

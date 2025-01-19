@@ -20,7 +20,7 @@ function ChatSession() {
             setCurrentConversation([...currentConversation, { role: 'user', content: [{ text: payload.prompt, type: 'text' }] }]); // Add the user's input to the current conversation
         } else if (speakerTurn === 'bot') {
             // console.log('AI RESPONSE');
-            // console.log(AIResponse);
+            console.log('AI RESPONSE \n', AIResponse);
             // fetchChatHistory();
 
             const aiResp = AIResponse['query_result'];
